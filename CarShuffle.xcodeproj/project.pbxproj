@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		57FD024726349A54002B4DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57FD024526349A54002B4DFF /* LaunchScreen.storyboard */; };
 		57FD025226349A55002B4DFF /* CarShuffleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD025126349A55002B4DFF /* CarShuffleTests.swift */; };
 		57FD025D26349A55002B4DFF /* CarShuffleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD025C26349A55002B4DFF /* CarShuffleUITests.swift */; };
+		57FD026C26349DDA002B4DFF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FD026B26349DDA002B4DFF /* CloudKit.framework */; };
+		57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */; };
+		57FD02732634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */; };
+		57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02712634A03D002B4DFF /* URL+AppGroups.swift */; };
 		86180897563AA9D35CD1858B /* Pods_CarShuffle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,11 @@
 		57FD025826349A55002B4DFF /* CarShuffleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarShuffleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FD025C26349A55002B4DFF /* CarShuffleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarShuffleUITests.swift; sourceTree = "<group>"; };
 		57FD025E26349A55002B4DFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57FD026A26349DCF002B4DFF /* CarShuffle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarShuffle.entitlements; sourceTree = "<group>"; };
+		57FD026B26349DDA002B4DFF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+EntityName.swift"; sourceTree = "<group>"; };
+		57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+CarShuffle.swift"; sourceTree = "<group>"; };
+		57FD02712634A03D002B4DFF /* URL+AppGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+AppGroups.swift"; sourceTree = "<group>"; };
 		EC7BA306B5E1B87057226637 /* Pods-CarShuffle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarShuffle.debug.xcconfig"; path = "Target Support Files/Pods-CarShuffle/Pods-CarShuffle.debug.xcconfig"; sourceTree = "<group>"; };
 		F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarShuffle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86180897563AA9D35CD1858B /* Pods_CarShuffle.framework in Frameworks */,
+				57FD026C26349DDA002B4DFF /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +96,7 @@
 		57FD022B26349A52002B4DFF = {
 			isa = PBXGroup;
 			children = (
+				57FD026D2634A010002B4DFF /* Shared */,
 				57FD023626349A53002B4DFF /* CarShuffle */,
 				57FD025026349A55002B4DFF /* CarShuffleTests */,
 				57FD025B26349A55002B4DFF /* CarShuffleUITests */,
@@ -108,6 +119,7 @@
 		57FD023626349A53002B4DFF /* CarShuffle */ = {
 			isa = PBXGroup;
 			children = (
+				57FD026A26349DCF002B4DFF /* CarShuffle.entitlements */,
 				57FD023726349A53002B4DFF /* AppDelegate.swift */,
 				57FD023926349A53002B4DFF /* SceneDelegate.swift */,
 				57FD023B26349A53002B4DFF /* ViewController.swift */,
@@ -138,9 +150,28 @@
 			path = CarShuffleUITests;
 			sourceTree = "<group>";
 		};
+		57FD026D2634A010002B4DFF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				57FD026E2634A019002B4DFF /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		57FD026E2634A019002B4DFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */,
+				57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */,
+				57FD02712634A03D002B4DFF /* URL+AppGroups.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9448871DB874A7FAB53F0876 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57FD026B26349DDA002B4DFF /* CloudKit.framework */,
 				F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */,
 			);
 			name = Frameworks;
@@ -152,7 +183,6 @@
 				EC7BA306B5E1B87057226637 /* Pods-CarShuffle.debug.xcconfig */,
 				138F018A925F6F1934C33630 /* Pods-CarShuffle.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -330,10 +360,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */,
 				57FD023C26349A53002B4DFF /* ViewController.swift in Sources */,
 				57FD023826349A53002B4DFF /* AppDelegate.swift in Sources */,
 				57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */,
+				57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */,
 				57FD023A26349A53002B4DFF /* SceneDelegate.swift in Sources */,
+				57FD02732634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CarShuffle/CarShuffle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26Y8AQV29F;
 				INFOPLIST_FILE = CarShuffle/Info.plist;
@@ -530,6 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CarShuffle/CarShuffle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26Y8AQV29F;
 				INFOPLIST_FILE = CarShuffle/Info.plist;
