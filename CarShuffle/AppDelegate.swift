@@ -38,6 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureCloudCore()
         
+        #if DEBUG
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.loadDemoData()
+        }
+        #endif
+        
         return true
     }
     
@@ -70,6 +76,7 @@ extension AppDelegate {
         
         CloudCore.pull(to: persistentContainer, error: nil) { }
     }
+        
     #endif
     
     func application(_ application: UIApplication,
@@ -129,6 +136,35 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
         // TODO: show notification settings
+    }
+    
+}
+
+extension AppDelegate {
+    
+    func loadDemoData() {
+        let request: NSFetchRequest<Car> = Car.fetchRequest()
+        
+        guard let count = try? persistentContainer.viewContext.count(for: request), count <= 3 else { return }
+        
+        persistentContainer.performBackgroundTask { moc in
+            moc.name = CloudCore.config.pushContextName
+            
+            var generator = SystemRandomNumberGenerator()
+            let random = generator.next()
+            
+            let formatter = NumberFormatter()
+            let randomString = formatter.string(from: NSNumber(value: random))!
+            
+            let car = Car(context: moc)
+            car.name = "Car " + randomString
+            
+            do {
+                try moc.save()
+            } catch {
+                print("Unexpected error: \(error).")
+            }
+        }
     }
     
 }

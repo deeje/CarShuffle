@@ -20,6 +20,7 @@
 		57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */; };
 		57FD02732634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */; };
 		57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02712634A03D002B4DFF /* URL+AppGroups.swift */; };
+		57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02762634AAD9002B4DFF /* Car+CoreDataClass.swift */; };
 		86180897563AA9D35CD1858B /* Pods_CarShuffle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+EntityName.swift"; sourceTree = "<group>"; };
 		57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentContainer+CarShuffle.swift"; sourceTree = "<group>"; };
 		57FD02712634A03D002B4DFF /* URL+AppGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+AppGroups.swift"; sourceTree = "<group>"; };
+		57FD02762634AAD9002B4DFF /* Car+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EC7BA306B5E1B87057226637 /* Pods-CarShuffle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarShuffle.debug.xcconfig"; path = "Target Support Files/Pods-CarShuffle/Pods-CarShuffle.debug.xcconfig"; sourceTree = "<group>"; };
 		F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarShuffle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,7 +129,6 @@
 				57FD024326349A54002B4DFF /* Assets.xcassets */,
 				57FD024526349A54002B4DFF /* LaunchScreen.storyboard */,
 				57FD024826349A54002B4DFF /* Info.plist */,
-				57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */,
 			);
 			path = CarShuffle;
 			sourceTree = "<group>";
@@ -153,6 +154,7 @@
 		57FD026D2634A010002B4DFF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				57FD02752634A856002B4DFF /* Model */,
 				57FD026E2634A019002B4DFF /* Extensions */,
 			);
 			path = Shared;
@@ -166,6 +168,15 @@
 				57FD02712634A03D002B4DFF /* URL+AppGroups.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		57FD02752634A856002B4DFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */,
+				57FD02762634AAD9002B4DFF /* Car+CoreDataClass.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9448871DB874A7FAB53F0876 /* Frameworks */ = {
@@ -364,6 +375,7 @@
 				57FD023C26349A53002B4DFF /* ViewController.swift in Sources */,
 				57FD023826349A53002B4DFF /* AppDelegate.swift in Sources */,
 				57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */,
+				57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */,
 				57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */,
 				57FD023A26349A53002B4DFF /* SceneDelegate.swift in Sources */,
 				57FD02732634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift in Sources */,
@@ -472,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -527,7 +539,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

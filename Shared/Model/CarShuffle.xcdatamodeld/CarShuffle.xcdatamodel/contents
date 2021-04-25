@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Car" representedClassName="Car" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ownerUUID" optional="YES" attributeType="String">
+            <userInfo>
+                <entry key="CloudCoreType" value="ownerName"/>
+            </userInfo>
+        </attribute>
+        <attribute name="privateRecordData" optional="YES" attributeType="Binary" preserveAfterDeletion="YES">
+            <userInfo>
+                <entry key="CloudCoreType" value="privateRecordData"/>
+            </userInfo>
+        </attribute>
+        <attribute name="publicRecordData" optional="YES" attributeType="Binary" preserveAfterDeletion="YES">
+            <userInfo>
+                <entry key="CloudCoreType" value="publicRecordData"/>
+            </userInfo>
+        </attribute>
+        <attribute name="uuid" optional="YES" attributeType="String" preserveAfterDeletion="YES">
+            <userInfo>
+                <entry key="CloudCoreType" value="recordName"/>
+            </userInfo>
+        </attribute>
+        <fetchIndex name="byUUID">
+            <fetchIndexElement property="uuid" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <userInfo>
+            <entry key="CloudCoreScopes" value="private"/>
+        </userInfo>
+    </entity>
+    <elements>
+        <element name="Car" positionX="-63" positionY="-18" width="128" height="104"/>
+    </elements>
+</model>
