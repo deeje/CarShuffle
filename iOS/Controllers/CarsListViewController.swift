@@ -41,6 +41,8 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         configureFRC()
         updateSnapshot()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+        
         collectionView.delegate = self
     }
     
@@ -62,7 +64,22 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     }
     
     func configureLayout() {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        
+        configuration.trailingSwipeActionsConfigurationProvider = { [unowned self] (indexPath) in
+            guard let car = self.diffableDataSource.itemIdentifier(for: indexPath) else {
+                return nil
+            }
+            
+            let deleteAction = UIContextualAction(style: .normal, title: "Delete") { action, view, completion in
+                confirmDelete(car.objectID)
+                completion(true)
+            }
+            deleteAction.backgroundColor = .systemRed
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction])
+        }
+
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: configuration)
     }
     
@@ -110,33 +127,7 @@ extension CarsListViewController {
             
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
-    
-    /*
-    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt contextMenuConfigurationForItemAtIndexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration {
-        let userScan = userScanAt(contextMenuConfigurationForItemAtIndexPath)
-        let userScanID = userScan.objectID
-                
-        let details = UIAction(title: "Details…", image: UIImage(systemName: "info.circle")) { _ in
-            DispatchQueue.main.async {
-                let vc = ScanDetailTableViewController.instantiate { coder in
-                    return ScanDetailTableViewController(coder: coder, persistentContainer: self.persistentContainer, userScan: userScan)
-                }
-                self.show(vc, sender: self)
-            }
-        }
-                
-        let delete = UIAction(title: "Delete…", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
-            DispatchQueue.main.async {
-                self.confirmDelete(userScanID)
-            }
-        }
         
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            UIMenu(title: "Actions", children: [favorite, details, tags, delete])
-        }
-    }
-    */
-    
     func confirmDelete(_ carID: NSManagedObjectID) {
         let alert = UIAlertController(title: "Delete this car?", message: "This cannot be undone", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Delete", style: .destructive) { _ in
@@ -149,7 +140,7 @@ extension CarsListViewController {
     }
     
     func delete(_ carID: NSManagedObjectID) {
-        self.persistentContainer.performBackgroundTask { moc in
+        self.persistentContainer.performBackgroundPushTask { moc in
             if let car = try? moc.existingObject(with: carID) as? Car {
                 do {
                     moc.delete(car)
@@ -157,6 +148,19 @@ extension CarsListViewController {
                 } catch {
 //                    os_log("delete failed with error %@.", log: OSLog.user, type: .debug, error as CVarArg)
                 }
+            }
+        }
+    }
+    
+    @objc
+    func add() {
+        self.persistentContainer.performBackgroundPushTask { moc in
+            let car = Car(context: moc)
+            car.name = "Car " + UUID().uuidString
+            do {
+                try moc.save()
+            } catch {
+//              os_log("add failed with error %@.", log: OSLog.user, type: .debug, error as CVarArg)
             }
         }
     }
