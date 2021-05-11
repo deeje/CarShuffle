@@ -71,13 +71,18 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
                 return nil
             }
             
-            let deleteAction = UIContextualAction(style: .normal, title: "Delete") { action, view, completion in
+            let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completion in
+                let carEditor = CarEditor(persistentContainer: self.persistentContainer, entryID: car.objectID)
+                show(carEditor, sender: self)
+                completion(true)
+            }
+            
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completion in
                 confirmDelete(car.objectID)
                 completion(true)
             }
-            deleteAction.backgroundColor = .systemRed
             
-            return UISwipeActionsConfiguration(actions: [deleteAction])
+            return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         }
 
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: configuration)
@@ -154,15 +159,8 @@ extension CarsListViewController {
     
     @objc
     func add() {
-        self.persistentContainer.performBackgroundPushTask { moc in
-            let car = Car(context: moc)
-            car.name = "Car " + UUID().uuidString
-            do {
-                try moc.save()
-            } catch {
-//              os_log("add failed with error %@.", log: OSLog.user, type: .debug, error as CVarArg)
-            }
-        }
+        let CarEditor = CarEditor(persistentContainer: persistentContainer, entryID: nil)
+        show(CarEditor, sender: self)
     }
     
 }
