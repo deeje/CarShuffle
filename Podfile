@@ -11,6 +11,9 @@ target 'CarShuffle' do
     
     pod 'Connectivity'
     pod 'WhatsNewKit'
+    
+    pod 'Eureka'
+    pod 'SwiftDate'
 end
 
 # target 'watchOS Extension' do

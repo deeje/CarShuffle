@@ -1,4 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-CarShuffle/Pods-CarShuffle-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CloudCore/CloudCore.framework
 ${BUILT_PRODUCTS_DIR}/Connectivity/Connectivity.framework
+${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework
+${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework
 ${BUILT_PRODUCTS_DIR}/WhatsNewKit/WhatsNewKit.framework
