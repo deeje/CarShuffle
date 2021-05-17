@@ -72,7 +72,7 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
             }
             
             let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completion in
-                let carEditor = CarEditor(persistentContainer: self.persistentContainer, entryID: car.objectID)
+                let carEditor = CarEditor(persistentContainer: self.persistentContainer, carID: car.objectID)
                 show(carEditor, sender: self)
                 completion(true)
             }
@@ -159,7 +159,7 @@ extension CarsListViewController {
     
     @objc
     func add() {
-        let CarEditor = CarEditor(persistentContainer: persistentContainer, entryID: nil)
+        let CarEditor = CarEditor(persistentContainer: persistentContainer, carID: nil)
         show(CarEditor, sender: self)
     }
     

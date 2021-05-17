@@ -37,9 +37,9 @@ class CarEditor: FormViewController {
         }
     }
     
-    init(persistentContainer: NSPersistentContainer, entryID: NSManagedObjectID?) {
+    init(persistentContainer: NSPersistentContainer, carID: NSManagedObjectID?) {
         self.persistentContainer = persistentContainer
-        self.carID = entryID
+        self.carID = carID
         
         super.init(style: .grouped)
     }
