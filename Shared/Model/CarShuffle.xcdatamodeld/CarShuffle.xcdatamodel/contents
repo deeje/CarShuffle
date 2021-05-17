@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Car" representedClassName="Car" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="ownerUUID" optional="YES" attributeType="String">
@@ -22,6 +22,7 @@
                 <entry key="CloudCoreType" value="recordName"/>
             </userInfo>
         </attribute>
+        <relationship name="reminder" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Reminder" inverseName="car" inverseEntity="Reminder"/>
         <fetchIndex name="byUUID">
             <fetchIndexElement property="uuid" type="Binary" order="ascending"/>
         </fetchIndex>
@@ -29,7 +30,39 @@
             <entry key="CloudCoreScopes" value="private"/>
         </userInfo>
     </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="category">
+        <attribute name="moveBy" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="ownerUUID" optional="YES" attributeType="String">
+            <userInfo>
+                <entry key="CloudCoreType" value="ownerName"/>
+            </userInfo>
+        </attribute>
+        <attribute name="privateRecordData" optional="YES" attributeType="Binary" preserveAfterDeletion="YES">
+            <userInfo>
+                <entry key="CloudCoreType" value="privateRecordData"/>
+            </userInfo>
+        </attribute>
+        <attribute name="publicRecordData" optional="YES" attributeType="Binary" preserveAfterDeletion="YES">
+            <userInfo>
+                <entry key="CloudCoreType" value="publicRecordData"/>
+            </userInfo>
+        </attribute>
+        <attribute name="uuid" optional="YES" attributeType="String" preserveAfterDeletion="YES">
+            <userInfo>
+                <entry key="CloudCoreType" value="recordName"/>
+            </userInfo>
+        </attribute>
+        <relationship name="car" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Car" inverseName="reminder" inverseEntity="Car"/>
+        <fetchIndex name="byUUID">
+            <fetchIndexElement property="uuid" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <userInfo>
+            <entry key="CloudCoreParent" value="car"/>
+            <entry key="CloudCoreScopes" value="private"/>
+        </userInfo>
+    </entity>
     <elements>
-        <element name="Car" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Car" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Reminder" positionX="-63" positionY="18" width="128" height="119"/>
     </elements>
 </model>

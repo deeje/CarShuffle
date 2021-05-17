@@ -17,6 +17,12 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     var diffableDataSource: UICollectionViewDiffableDataSource<String, Car>!
     var lastObjectCount = 0
     
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE, MMM dd"
+        return formatter
+    }()
+    
     static func storyboardName() -> String {
         return "CarsListView"
     }
@@ -56,9 +62,14 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     }
     
     func configureCellRegistration() {
-        cellRegistration = .init { cell, _, car in
+        cellRegistration = .init { [unowned self] cell, _, car in
             var configuration = cell.defaultContentConfiguration()
-            configuration.text = car.name
+            
+            var text = car.name ?? "Car"
+            if let reminder = car.reminder, let moveBy = reminder.moveBy {
+                text = text + " @ " + self.dateFormatter.string(from: moveBy)
+            }
+            configuration.text = text
             cell.contentConfiguration = configuration
         }
     }
@@ -129,8 +140,23 @@ extension CarsListViewController: NSFetchedResultsControllerDelegate {
 }
 
 extension CarsListViewController {
-            
+    
+    func carAt(_ indexPath: IndexPath) -> Car {
+        let sectionData = self.frc.sections?[indexPath.section]
+        let userScan = sectionData?.objects![indexPath.item] as! Car
+        
+        return userScan
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let car = carAt(indexPath)
+        
+        let reminderID = car.reminder?.objectID
+        
+        let reminderEditor = ReminderEditor(persistentContainer: persistentContainer,
+                                            carID: car.objectID,
+                                            reminderID: reminderID)
+        show(reminderEditor, sender: self)
     }
         
     func confirmDelete(_ carID: NSManagedObjectID) {
@@ -159,8 +185,8 @@ extension CarsListViewController {
     
     @objc
     func add() {
-        let CarEditor = CarEditor(persistentContainer: persistentContainer, carID: nil)
-        show(CarEditor, sender: self)
+        let carEditor = CarEditor(persistentContainer: persistentContainer, carID: nil)
+        show(carEditor, sender: self)
     }
     
 }
