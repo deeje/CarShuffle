@@ -100,7 +100,7 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     }
     
     func configureFRC() {
-        let fetchRequest = NSFetchRequest<Car>(entityName: "Car")
+        let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: persistentContainer.viewContext,
