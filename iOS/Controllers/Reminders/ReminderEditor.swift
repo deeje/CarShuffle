@@ -8,6 +8,7 @@
 import Eureka
 import CoreData
 import CloudCore
+import SwiftDate
 
 class ReminderEditor: FormViewController {
     
@@ -62,10 +63,8 @@ class ReminderEditor: FormViewController {
             <<< DateTimeRow {
                 $0.tag = Keys.moveBy.key()
                 $0.title = Keys.moveBy.title()
-                
-                $0.minuteInterval = 60
-                
-                $0.value = reminderEntity?.moveBy ?? Date()
+                                
+                $0.value = reminderEntity?.moveBy ?? (Date() + 3.minutes)
             }
                         
             +++ Section("")
@@ -109,6 +108,11 @@ class ReminderEditor: FormViewController {
     
     @objc func doSave() {
         let values = form.values()
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            // Enable or disable features based on authorization.
+        }
         
         persistentContainer.performBackgroundPushTask { moc in
             var reminderEntity: Reminder?

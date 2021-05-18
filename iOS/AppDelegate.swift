@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var connectivity: Connectivity?
     
+    var remindersObserver: RemindersObserver?
+    
     #if DEBUG
     var justLaunched = false
     #endif
@@ -37,7 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureUserNotifications()
         
         configureCloudCore()
-                
+        
+        remindersObserver = RemindersObserver(persistentContainer: persistentContainer)
+        
         return true
     }
     
@@ -96,7 +100,7 @@ extension AppDelegate {
     
     func configureCloudCore() {
         CloudCore.enable(persistentContainer: persistentContainer)
-                
+        
         let connectivityChanged: (Connectivity) -> Void = { connectivity in
             let online : [ConnectivityStatus] = [.connected, .connectedViaCellular, .connectedViaWiFi]
             CloudCore.isOnline = online.contains(connectivity.status)

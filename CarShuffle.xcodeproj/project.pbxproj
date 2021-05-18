@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */; };
+		575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF4026546F200050D693 /* RemindersObserver.swift */; };
+		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
 		576AEE242652F5F5003D597D /* ReminderEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576AEE232652F5F5003D597D /* ReminderEditor.swift */; };
 		57B26DFA264B0B99000C6996 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B26DF8264B0B99000C6996 /* Storyboarded.swift */; };
 		57B26DFB264B0B99000C6996 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B26DF9264B0B99000C6996 /* Coordinator.swift */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		138F018A925F6F1934C33630 /* Pods-CarShuffle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarShuffle.release.xcconfig"; path = "Target Support Files/Pods-CarShuffle/Pods-CarShuffle.release.xcconfig"; sourceTree = "<group>"; };
 		575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		575ADF4026546F200050D693 /* RemindersObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersObserver.swift; sourceTree = "<group>"; };
+		575ADF42265474750050D693 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		576AEE232652F5F5003D597D /* ReminderEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditor.swift; sourceTree = "<group>"; };
 		57B26DF8264B0B99000C6996 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		57B26DF9264B0B99000C6996 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				576AEE232652F5F5003D597D /* ReminderEditor.swift */,
+				575ADF4026546F200050D693 /* RemindersObserver.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */,
 				57FD02762634AAD9002B4DFF /* Car+CoreDataClass.swift */,
 				575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */,
+				575ADF42265474750050D693 /* Countdown.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,12 +435,14 @@
 				576AEE242652F5F5003D597D /* ReminderEditor.swift in Sources */,
 				57FD023826349A53002B4DFF /* AppDelegate.swift in Sources */,
 				57B26DFB264B0B99000C6996 /* Coordinator.swift in Sources */,
+				575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */,
 				57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */,
 				57B26DFD264B1248000C6996 /* LaunchCoordinator.swift in Sources */,
 				57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */,
 				57B26E09264B49EE000C6996 /* CarsListViewController.swift in Sources */,
 				57B26DFA264B0B99000C6996 /* Storyboarded.swift in Sources */,
 				57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */,
+				575ADF43265474750050D693 /* Countdown.swift in Sources */,
 				57FD023A26349A53002B4DFF /* SceneDelegate.swift in Sources */,
 				575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */,
 				57B26E0B264B4AFF000C6996 /* CarEditor.swift in Sources */,
