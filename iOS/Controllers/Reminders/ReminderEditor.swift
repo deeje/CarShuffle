@@ -27,8 +27,6 @@ class ReminderEditor: FormViewController {
             switch self {
             case .moveBy:
                 return "Move By"
-            default:
-                return rawValue.capitalized
             }
         }
     }
