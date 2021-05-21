@@ -12,6 +12,7 @@ enum Countdown: String, CaseIterable {
     case ok
     case caution
     case danger
+    case expired
     
     func color() -> UIColor {
         switch self {
@@ -20,6 +21,8 @@ enum Countdown: String, CaseIterable {
         case .caution:
             return .systemYellow
         case .danger:
+            return .systemRed
+        case .expired:
             return .systemRed
         }
     }
@@ -32,6 +35,8 @@ enum Countdown: String, CaseIterable {
             return 12.hours
         case .danger:
             return 1.hours
+        case .expired:
+            return 0.minutes
         }
     }
     
