@@ -53,9 +53,9 @@ final class RemindersObserver: NSObject, NSFetchedResultsControllerDelegate {
                 }
                 
                 let notificationDate = reminder.moveBy! - countdown.timeInterval()
-                let components: Set<Calendar.Component> = [ .second, .minute, .hour, .day, .month, .year]
+                let components: Set<Calendar.Component> = [.second, .minute, .hour, .day]
                 let dateComponents = Calendar.current.dateComponents(components, from: notificationDate)
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: uuidString + countdown.rawValue, content: content, trigger: trigger)
                 noteCenter.add(request) { error in
                     //
