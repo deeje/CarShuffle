@@ -113,6 +113,8 @@ class ReminderEditor: FormViewController {
         }
         
         persistentContainer.performBackgroundPushTask { moc in
+            let carEntity = (try! moc.existingObject(with: self.carID)) as! Car
+            
             var reminderEntity: Reminder?
             if self.reminderID != nil {
                 reminderEntity = (try? moc.existingObject(with: self.reminderID!)) as? Reminder
@@ -120,7 +122,6 @@ class ReminderEditor: FormViewController {
             if reminderEntity == nil {
                 reminderEntity = Reminder(context: moc)
                 
-                let carEntity = (try! moc.existingObject(with: self.carID)) as! Car
                 if let oldReminderEntity = carEntity.reminder {
                     moc.delete(oldReminderEntity)
                     carEntity.reminder = nil
@@ -128,6 +129,7 @@ class ReminderEditor: FormViewController {
                 carEntity.reminder = reminderEntity
             }
             reminderEntity?.moveBy = values[Keys.moveBy.key()] as? Date
+            carEntity.lastUpdated = Date()
             
             do {
                 try moc.save()

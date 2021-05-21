@@ -15,7 +15,8 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     var frc: NSFetchedResultsController<Car>!
     var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, Car>!
     var diffableDataSource: UICollectionViewDiffableDataSource<String, Car>!
-    var lastObjectCount = 0
+    
+    var changedCars: [Car] = []
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -117,24 +118,31 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     }
     
     func updateSnapshot() {
-        let objectCount = frc.fetchedObjects?.count ?? 0
-        
         var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<String, Car>()
         frc.sections?.forEach { section in
             diffableDataSourceSnapshot.appendSections([section.name])
             diffableDataSourceSnapshot.appendItems(section.objects as! [Car], toSection: section.name)
         }
-        diffableDataSource?.apply(diffableDataSourceSnapshot, animatingDifferences: lastObjectCount != objectCount)
+        diffableDataSourceSnapshot.reloadItems(changedCars)
         
-        lastObjectCount = objectCount
+        diffableDataSource?.apply(diffableDataSourceSnapshot, animatingDifferences: true)
     }
     
 }
 
 extension CarsListViewController: NSFetchedResultsControllerDelegate {
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        if type == .update, let car = anObject as? Car {
+            changedCars.append(car)
+        }
+    }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.updateSnapshot()
+        
+        changedCars.removeAll()
     }
     
 }
