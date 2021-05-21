@@ -13,9 +13,7 @@ import WidgetKit
 final class RemindersObserver: NSObject, NSFetchedResultsControllerDelegate {
     private let persistentContainer: NSPersistentContainer
     private let frc: NSFetchedResultsController<Reminder>
-    
-    var carIDs: [String] = []
-    
+        
     init(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
         
@@ -33,50 +31,26 @@ final class RemindersObserver: NSObject, NSFetchedResultsControllerDelegate {
         
         frc.delegate = self
         try? frc.performFetch()
-        
-        cacheCarIDS()
     }
     
-    func cacheCarIDS() {
-        frc.managedObjectContext.perform {
-            if let reminders = self.frc.fetchedObjects {
-                self.carIDs = reminders.map { reminder in
-                    return reminder.car!.uuid!
-                }
-            }
-        }
-    }
-    
-    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                           didChange anObject: Any,
-                           at indexPath: IndexPath?,
-                           for type: NSFetchedResultsChangeType,
-                           newIndexPath: IndexPath?) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         let noteCenter = UNUserNotificationCenter.current()
+        noteCenter.removeAllPendingNotificationRequests()
         
-        func cleanup(uuid: String) {
-            var identifiers = [uuid]
-            for countdown in Countdown.allCases {
-                identifiers.append(uuid + countdown.rawValue)
-            }
-            noteCenter.removePendingNotificationRequests(withIdentifiers: identifiers)
-        }
+        guard let reminders = frc.fetchedObjects else { return }
         
-        switch type {
-        case .delete:
-            let uuidString = carIDs[indexPath!.item]
-            cleanup(uuid: uuidString)
-        case .update, .insert:
-            guard let reminder = anObject as? Reminder, let car = reminder.car else { return }
-            
-            let uuidString = car.uuid!
-            cleanup(uuid: uuidString)
+        for reminder in reminders {
+            guard let car = reminder.car, let uuidString = car.uuid else { continue }
             
             for countdown in Countdown.allCases {
                 let content = UNMutableNotificationContent()
                 content.categoryIdentifier = "reminderNotification"
                 content.title = "Move the " + car.name!
-                content.subtitle = "Parking expires in " + countdown.timeInterval().toString()
+                if countdown == .expired {
+                    content.subtitle = "Parking has expired!"
+                } else {
+                    content.subtitle = "Parking expires in " + countdown.timeInterval().toString()
+                }
                 
                 let notificationDate = reminder.moveBy! - countdown.timeInterval()
                 let components: Set<Calendar.Component> = [ .second, .minute, .hour, .day, .month, .year]
@@ -87,29 +61,9 @@ final class RemindersObserver: NSObject, NSFetchedResultsControllerDelegate {
                     //
                 }
             }
-            
-            let content = UNMutableNotificationContent()
-            content.categoryIdentifier = "reminderNotification"
-            content.title = "Move the " + car.name!
-            content.subtitle = "Parking has expired!"
-            
-            let notificationDate = reminder.moveBy!
-            let components: Set<Calendar.Component> = [ .second, .minute, .hour, .day, .month, .year]
-            let dateComponents = Calendar.current.dateComponents(components, from: notificationDate)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-            let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-            noteCenter.add(request) { error in
-                //
-            }
-        default:
-            break
         }
         
         WidgetCenter.shared.reloadTimelines(ofKind: Identifiers.carWidget)
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        cacheCarIDS()
     }
     
 }
