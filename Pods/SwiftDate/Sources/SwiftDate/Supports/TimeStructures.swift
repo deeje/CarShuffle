@@ -15,7 +15,7 @@ import Foundation
 // MARK: - Weekday
 
 /// This define the weekdays for some functions.
-public enum WeekDay: Int {
+public enum WeekDay: Int, CaseIterable {
 	case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
 
 	/// Returns the name of the day given a specific locale.
