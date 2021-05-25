@@ -59,6 +59,9 @@ class DayReminderEditor: FormViewController {
             <<< PickerInlineRow<WeekDay>(Keys.weekday.key()) { row in
                 row.title = Keys.weekday.title()
                 row.options = WeekDay.allCases
+                row.displayValueFor = { rowValue in
+                    return rowValue?.name()
+                }
                 row.value = row.options[1]
             }
             
