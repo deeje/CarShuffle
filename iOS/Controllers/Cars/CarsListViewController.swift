@@ -20,7 +20,7 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEE, MMM dd"
+        formatter.dateFormat = "EEE, MMM dd, ha"
         return formatter
     }()
     
@@ -161,7 +161,7 @@ extension CarsListViewController {
         
         let reminderID = car.reminder?.objectID
         
-        let reminderEditor = ReminderEditor(persistentContainer: persistentContainer,
+        let reminderEditor = DayReminderEditor(persistentContainer: persistentContainer,
                                             carID: car.objectID,
                                             reminderID: reminderID)
         show(reminderEditor, sender: self)

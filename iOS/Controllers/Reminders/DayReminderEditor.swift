@@ -1,8 +1,8 @@
 //
-//  ReminderEditor.swift
+//  DayReminderEditor.swift
 //  CarShuffle
 //
-//  Created by deeje cooley on 5/17/21.
+//  Created by deeje cooley on 5/21/21.
 //
 
 import Eureka
@@ -10,24 +10,22 @@ import CoreData
 import CloudCore
 import SwiftDate
 
-class ReminderEditor: FormViewController {
+class DayReminderEditor: FormViewController {
     
     var persistentContainer: NSPersistentContainer
     var carID: NSManagedObjectID
     var reminderID: NSManagedObjectID?
     
     enum Keys: String {
-        case moveBy
+        case weekday
+        case hour
         
         func key() -> String {
             return rawValue
         }
         
         func title() -> String {
-            switch self {
-            case .moveBy:
-                return "Move By"
-            }
+            return rawValue.capitalized
         }
     }
     
@@ -58,13 +56,18 @@ class ReminderEditor: FormViewController {
         form
             +++ Section()
             
-            <<< DateTimeRow {
-                $0.tag = Keys.moveBy.key()
-                $0.title = Keys.moveBy.title()
-                                
-                $0.value = reminderEntity?.moveBy ?? (Date() + 3.minutes)
+            <<< PickerInlineRow<WeekDay>(Keys.weekday.key()) { row in
+                row.title = Keys.weekday.title()
+                row.options = WeekDay.allCases
+                row.value = row.options[1]
             }
-                        
+            
+            <<< PickerInlineRow<Int>(Keys.hour.key()) { row in
+                row.title = Keys.hour.title()
+                row.options = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+                row.value = row.options[3]
+            }
+            
             +++ Section("")
         
             <<< DestructiveButtonRow {
@@ -128,7 +131,21 @@ class ReminderEditor: FormViewController {
                 }
                 carEntity.reminder = reminderEntity
             }
-            reminderEntity?.moveBy = values[Keys.moveBy.key()] as? Date
+            
+            let calendar = Calendar.current
+            let today = Date() - 1.days
+            
+            let weekday: WeekDay = (values[Keys.weekday.key()] as? WeekDay)!
+            let nextWeekday = today.nextWeekday(weekday)
+            
+            var moveByComponents = nextWeekday.dateComponents
+            moveByComponents.second = 0
+            moveByComponents.minute = 0
+            moveByComponents.hour = (values[Keys.hour.key()] as? Int)!
+            moveByComponents.timeZone = calendar.timeZone
+            let moveBy = calendar.date(from: moveByComponents)
+            
+            reminderEntity?.moveBy = moveBy
             carEntity.lastUpdated = Date()
             
             do {

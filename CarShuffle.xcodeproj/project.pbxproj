@@ -10,7 +10,8 @@
 		575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */; };
 		575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF4026546F200050D693 /* RemindersObserver.swift */; };
 		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
-		576AEE242652F5F5003D597D /* ReminderEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576AEE232652F5F5003D597D /* ReminderEditor.swift */; };
+		57690F59265878F300FCCAD2 /* DayReminderEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57690F58265878F300FCCAD2 /* DayReminderEditor.swift */; };
+		576AEE242652F5F5003D597D /* DateReminderEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576AEE232652F5F5003D597D /* DateReminderEditor.swift */; };
 		57B26DFA264B0B99000C6996 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B26DF8264B0B99000C6996 /* Storyboarded.swift */; };
 		57B26DFB264B0B99000C6996 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B26DF9264B0B99000C6996 /* Coordinator.swift */; };
 		57B26DFD264B1248000C6996 /* LaunchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B26DFC264B1248000C6996 /* LaunchCoordinator.swift */; };
@@ -55,7 +56,8 @@
 		575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		575ADF4026546F200050D693 /* RemindersObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersObserver.swift; sourceTree = "<group>"; };
 		575ADF42265474750050D693 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
-		576AEE232652F5F5003D597D /* ReminderEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditor.swift; sourceTree = "<group>"; };
+		57690F58265878F300FCCAD2 /* DayReminderEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayReminderEditor.swift; sourceTree = "<group>"; };
+		576AEE232652F5F5003D597D /* DateReminderEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateReminderEditor.swift; sourceTree = "<group>"; };
 		57B26DF8264B0B99000C6996 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		57B26DF9264B0B99000C6996 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		57B26DFC264B1248000C6996 /* LaunchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchCoordinator.swift; sourceTree = "<group>"; };
@@ -116,7 +118,8 @@
 		576AEE222652F596003D597D /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				576AEE232652F5F5003D597D /* ReminderEditor.swift */,
+				576AEE232652F5F5003D597D /* DateReminderEditor.swift */,
+				57690F58265878F300FCCAD2 /* DayReminderEditor.swift */,
 				575ADF4026546F200050D693 /* RemindersObserver.swift */,
 			);
 			path = Reminders;
@@ -432,11 +435,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */,
-				576AEE242652F5F5003D597D /* ReminderEditor.swift in Sources */,
+				576AEE242652F5F5003D597D /* DateReminderEditor.swift in Sources */,
 				57FD023826349A53002B4DFF /* AppDelegate.swift in Sources */,
 				57B26DFB264B0B99000C6996 /* Coordinator.swift in Sources */,
 				575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */,
 				57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */,
+				57690F59265878F300FCCAD2 /* DayReminderEditor.swift in Sources */,
 				57B26DFD264B1248000C6996 /* LaunchCoordinator.swift in Sources */,
 				57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */,
 				57B26E09264B49EE000C6996 /* CarsListViewController.swift in Sources */,
