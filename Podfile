@@ -13,7 +13,7 @@ target 'CarShuffle' do
     pod 'WhatsNewKit'
     
     pod 'Eureka'
-    pod 'SwiftDate'
+    pod 'SwiftDate', :path => '../SwiftDate'
 end
 
 # target 'watchOS Extension' do

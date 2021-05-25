@@ -9,19 +9,20 @@ DEPENDENCIES:
   - CloudCore (from `../CloudCore`)
   - Connectivity
   - Eureka
-  - SwiftDate
+  - SwiftDate (from `../SwiftDate`)
   - WhatsNewKit
 
 SPEC REPOS:
   trunk:
     - Connectivity
     - Eureka
-    - SwiftDate
     - WhatsNewKit
 
 EXTERNAL SOURCES:
   CloudCore:
     :path: "../CloudCore"
+  SwiftDate:
+    :path: "../SwiftDate"
 
 SPEC CHECKSUMS:
   CloudCore: ecaf5056198f4a1c5cf7c0041846f1e20a914fa2
@@ -30,6 +31,6 @@ SPEC CHECKSUMS:
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
-PODFILE CHECKSUM: 05c0e55fa16f971979f61f1c7e99bcc0a649d5df
+PODFILE CHECKSUM: a1ef6f947adb2f5783b35be949194a5cf7deda5e
 
 COCOAPODS: 1.10.1
