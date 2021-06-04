@@ -21,6 +21,26 @@ class CarEditor: FormViewController {
     
     var persistentContainer: NSPersistentContainer
     var carID: NSManagedObjectID?
+    var carObject: Car?
+    
+    lazy var shareButton: UIBarButtonItem = {
+        let config = UIImage.SymbolConfiguration(weight: .regular)
+        let shareImage = UIImage(systemName: "person.crop.circle", withConfiguration: config)
+        
+        return UIBarButtonItem.init(image: shareImage, style: .plain, target: self, action: #selector(shareProfile))
+    }()
+    var sharingController: CloudCoreSharingController?
+    var waitingForConfiguredShareController = false {
+        didSet {
+            configureUIforEditable()
+        }
+    }
+    
+    private var editable: Bool = false {
+        didSet {
+            configureUIforEditable()
+        }
+    }
     
     enum Keys: String {
         case name
@@ -53,11 +73,15 @@ class CarEditor: FormViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(doCancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(doSave))
         
-        var carEntity: Car?
         if carID != nil {
-            carEntity = (try? persistentContainer.viewContext.existingObject(with: carID!)) as? Car
+            carObject = (try? persistentContainer.viewContext.existingObject(with: carID!)) as? Car
+            
+            carObject?.fetchEditablePermissions { isEditable in
+                self.editable = isEditable
+            }
+        } else {
+            editable = true
         }
         
         form
@@ -68,7 +92,7 @@ class CarEditor: FormViewController {
                 $0.tag = Keys.name.key()
                 $0.title = Keys.name.title()
                 
-                $0.value = carEntity?.name
+                $0.value = carObject?.name
             }
             
             +++ Section("")
@@ -76,25 +100,86 @@ class CarEditor: FormViewController {
             <<< DestructiveButtonRow {
                 $0.title = "Delete"
                 $0.hidden = .function([]) { form in
-                    return carEntity == nil
+                    return self.carObject == nil
                 }
             }
             .onCellSelection { [weak self] (cell, row) in
                 self?.confirmDelete()
             }
-
+        
         navigationOptions = RowNavigationOptions.Enabled.union(.StopDisabledRow)
         animateScroll = true
         rowKeyboardSpacing = 20
-
+        
+        configureUIforEditable()
+    }
+    
+    func configureUIforEditable() {
+        var buttons: [UIBarButtonItem] = []
+        
+        if editable {
+            let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(doSave))
+            buttons.append(saveButton)
+        }
+        
+        // TODO: is this fixed in recent Catalyst?!
+        let addShareButton = !ProcessInfo.processInfo.isMacCatalystApp
+        
+        if addShareButton == true {
+            if waitingForConfiguredShareController {
+                let uiBusy = UIActivityIndicatorView(style: .medium)
+                uiBusy.hidesWhenStopped = true
+                uiBusy.startAnimating()
+                let uiBusyButton = UIBarButtonItem(customView: uiBusy)
+                buttons.append(uiBusyButton)
+            } else {
+                buttons.append(shareButton)
+            }
+        }
+                
+        self.navigationItem.rightBarButtonItems = buttons
+        
+        for row in form.rows {
+            if ["open", "add"].contains(row.tag) == false {
+                row.baseCell.isUserInteractionEnabled = editable
+            }
+        }
+    }
+    
+    @IBAction func shareProfile() {
+        if waitingForConfiguredShareController { return }
+        
+        iCloudAvailable { available in
+            guard available else { return }
+            
+            self.waitingForConfiguredShareController = true
+            if self.sharingController == nil {
+                self.sharingController = CloudCoreSharingController(persistentContainer: self.persistentContainer,
+                                                                    object: self.carObject!)
+            }
+            self.sharingController?.configureSharingController(permissions: [.allowReadWrite, .allowPrivate]) { csc in
+                DispatchQueue.main.async() {
+                    self.presentActivities(with: csc)
+                }
+            }
+        }
+    }
+    
+    func presentActivities(with sharingController: UICloudSharingController?) {
+        waitingForConfiguredShareController = false
+        
+        if let csc = sharingController {
+            csc.popoverPresentationController?.barButtonItem = shareButton
+            self.present(csc, animated:true, completion:nil)
+        }
     }
     
     func confirmDelete() {
         let alert = UIAlertController(title: "Are you sure you want to delete?", message: "This will be permanently removed this car from all devices", preferredStyle: .alert)
         let confirm = UIAlertAction(title: "Delete", style: .destructive) { _ in
             self.persistentContainer.performBackgroundPushTask { moc in
-                if let carEntity = try? moc.existingObject(with: self.carID!) {
-                    moc.delete(carEntity)
+                if let carToDelete = try? moc.existingObject(with: self.carID!) {
+                    moc.delete(carToDelete)
                     try? moc.save()
                 }
             }
@@ -114,14 +199,14 @@ class CarEditor: FormViewController {
         let values = form.values()
         
         persistentContainer.performBackgroundPushTask { moc in
-            var carEntity: Car?
+            var carToUpdate: Car?
             if self.carID != nil {
-                carEntity = (try? moc.existingObject(with: self.carID!)) as? Car
+                carToUpdate = (try? moc.existingObject(with: self.carID!)) as? Car
             }
-            if carEntity == nil {
-                carEntity = Car(context: moc)
+            if carToUpdate == nil {
+                carToUpdate = Car(context: moc)
             }
-            carEntity?.name = values[Keys.name.key()] as? String
+            carToUpdate?.name = values[Keys.name.key()] as? String
             
             do {
                 try moc.save()

@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-
+import CloudKit
 import CloudCore
 import Connectivity
 
@@ -83,19 +83,6 @@ extension AppDelegate {
                 completionHandler(fetchResult.uiBackgroundFetchResult)
             }
         }
-    }
-    
-    func application(_ application: UIApplication,
-                     userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
-        let acceptShareOperation = CKAcceptSharesOperation(shareMetadatas: [cloudKitShareMetadata])
-        acceptShareOperation.qualityOfService = .userInteractive
-        acceptShareOperation.perShareCompletionBlock = { meta, share, error in
-            CloudCore.pull(rootRecordID: meta.rootRecordID, container: self.persistentContainer, error: nil) { }
-        }
-        acceptShareOperation.acceptSharesCompletionBlock = { error in
-            // N/A
-        }
-        CKContainer(identifier: cloudKitShareMetadata.containerIdentifier).add(acceptShareOperation)
     }
     
     func configureCloudCore() {
