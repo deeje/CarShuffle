@@ -158,9 +158,7 @@ class CarEditor: FormViewController {
                                                                     object: self.carObject!)
             }
             self.sharingController?.configureSharingController(permissions: [.allowReadWrite, .allowPrivate]) { csc in
-                DispatchQueue.main.async() {
-                    self.presentActivities(with: csc)
-                }
+                self.presentActivities(with: csc)
             }
         }
     }
