@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import CloudKit
 import CloudCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
