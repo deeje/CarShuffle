@@ -17,7 +17,7 @@ extension Car: CloudCoreSharing {
     }
     
     public var sharingType: String? {
-        return "com.deeje.CarShuffle.car"
+        return nil
     }
     
     public var sharingImage: Data? {
