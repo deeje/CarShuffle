@@ -11,12 +11,11 @@ import CoreData
 class CarsListViewController: UICollectionViewController, Storyboarded {
     
     let persistentContainer: NSPersistentContainer
+    let viewContext: NSManagedObjectContext
     
     var frc: NSFetchedResultsController<Car>!
-    var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, Car>!
-    var diffableDataSource: UICollectionViewDiffableDataSource<String, Car>!
-    
-    var changedCars: [Car] = []
+    var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, NSManagedObjectID>!
+    var diffableDataSource: UICollectionViewDiffableDataSource<String, NSManagedObjectID>!
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -30,6 +29,7 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     
     init?(coder: NSCoder, persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
+        self.viewContext = persistentContainer.viewContext
         
         super.init(coder: coder)
     }
@@ -54,17 +54,19 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     }
     
     func configureDataSource() {
-        diffableDataSource = UICollectionViewDiffableDataSource<String, Car>(collectionView: collectionView) { [weak self] collectionView, indexPath, car in
+        diffableDataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView) { [weak self] collectionView, indexPath, carID in
             guard let self = self else { return nil }
             
-            return collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: car)
+            return collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: carID)
         }
         collectionView.dataSource = diffableDataSource
     }
     
     func configureCellRegistration() {
-        cellRegistration = .init { [unowned self] cell, _, car in
+        cellRegistration = .init { [unowned self] cell, _, carID in
             var configuration = cell.defaultContentConfiguration()
+            
+            let car = try! viewContext.existingObject(with: carID) as! Car
             
             var text = car.name ?? "Car"
             if let reminder = car.reminder, let moveBy = reminder.moveBy {
@@ -79,18 +81,18 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
         
         configuration.trailingSwipeActionsConfigurationProvider = { [unowned self] (indexPath) in
-            guard let car = self.diffableDataSource.itemIdentifier(for: indexPath) else {
+            guard let carID = self.diffableDataSource.itemIdentifier(for: indexPath) else {
                 return nil
             }
             
             let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completion in
-                let carEditor = CarEditor(persistentContainer: self.persistentContainer, carID: car.objectID)
+                let carEditor = CarEditor(persistentContainer: self.persistentContainer, carID: carID)
                 show(carEditor, sender: self)
                 completion(true)
             }
             
             let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completion in
-                confirmDelete(car.objectID)
+                confirmDelete(carID)
                 completion(true)
             }
             
@@ -104,7 +106,7 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                             managedObjectContext: persistentContainer.viewContext,
+                                             managedObjectContext: viewContext,
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
         frc.delegate = self
@@ -118,31 +120,26 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     }
     
     func updateSnapshot() {
-        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<String, Car>()
+        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>()
         frc.sections?.forEach { section in
             diffableDataSourceSnapshot.appendSections([section.name])
-            diffableDataSourceSnapshot.appendItems(section.objects as! [Car], toSection: section.name)
+            let cars = section.objects as! [Car]
+            let carIDs = cars.map { $0.objectID }
+            diffableDataSourceSnapshot.appendItems(carIDs, toSection: section.name)
         }
-        diffableDataSourceSnapshot.reloadItems(changedCars)
         
-        diffableDataSource?.apply(diffableDataSourceSnapshot, animatingDifferences: true)
+        diffableDataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
     }
     
 }
 
 extension CarsListViewController: NSFetchedResultsControllerDelegate {
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
-        if type == .update, let car = anObject as? Car {
-            changedCars.append(car)
-        }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.updateSnapshot()
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         
-        changedCars.removeAll()
+        let snapshot = snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        
+        diffableDataSource.apply(snapshot, animatingDifferences: true)
     }
     
 }
