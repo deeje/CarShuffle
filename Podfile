@@ -4,7 +4,7 @@ def shared_pods
 end
 
 target 'CarShuffle' do
-    platform :ios, '14.0'
+    platform :ios, '15.0'
     use_frameworks!
     
     shared_pods

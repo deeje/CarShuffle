@@ -1,7 +1,7 @@
 {
   "name": "CloudCore",
   "summary": "Framework that enables synchronization between CloudKit and Core Data.",
-  "version": "3.1",
+  "version": "4.0",
   "homepage": "https://github.com/deeje/CloudCore",
   "license": "MIT",
   "authors": {
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/deeje/CloudCore.git",
-    "tag": "3.1"
+    "tag": "4.0"
   },
   "platforms": {
     "ios": "13.0",
