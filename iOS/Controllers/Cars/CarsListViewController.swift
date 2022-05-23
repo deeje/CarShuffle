@@ -43,6 +43,7 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         
         configureLayout()
         configureCellRegistration()
+        
         configureDataSource()
         
         configureFRC()
@@ -53,13 +54,29 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         collectionView.delegate = self
     }
     
-    func configureDataSource() {
-        diffableDataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView) { [weak self] collectionView, indexPath, carID in
-            guard let self = self else { return nil }
+    func configureLayout() {
+        var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
+        
+        configuration.trailingSwipeActionsConfigurationProvider = { [unowned self] (indexPath) in
+            guard let carID = self.diffableDataSource.itemIdentifier(for: indexPath) else {
+                return nil
+            }
             
-            return collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: carID)
+            let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completion in
+                let carEditor = CarEditor(persistentContainer: self.persistentContainer, carID: carID)
+                self.show(carEditor, sender: self)
+                completion(true)
+            }
+            
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completion in
+                self.confirmDelete(carID)
+                completion(true)
+            }
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         }
-        collectionView.dataSource = diffableDataSource
+
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: configuration)
     }
     
     func configureCellRegistration() {
@@ -77,29 +94,13 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         }
     }
     
-    func configureLayout() {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
-        
-        configuration.trailingSwipeActionsConfigurationProvider = { [unowned self] (indexPath) in
-            guard let carID = self.diffableDataSource.itemIdentifier(for: indexPath) else {
-                return nil
-            }
+    func configureDataSource() {
+        diffableDataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView) { [weak self] collectionView, indexPath, carID in
+            guard let self = self else { return nil }
             
-            let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completion in
-                let carEditor = CarEditor(persistentContainer: self.persistentContainer, carID: carID)
-                show(carEditor, sender: self)
-                completion(true)
-            }
-            
-            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completion in
-                confirmDelete(carID)
-                completion(true)
-            }
-            
-            return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+            return collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: carID)
         }
-
-        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: configuration)
+        collectionView.dataSource = diffableDataSource
     }
     
     func configureFRC() {
