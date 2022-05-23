@@ -71,7 +71,7 @@ extension AppDelegate {
             return
         }
         
-        CloudCore.pull(to: persistentContainer, error: nil) { }
+        CloudCore.pull(to: persistentContainer, error: nil) { _ in }
     }
     #endif
     

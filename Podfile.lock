@@ -1,7 +1,7 @@
 PODS:
-  - CloudCore (4.0)
+  - CloudCore (5.0.2)
   - Connectivity (5.0.0)
-  - Eureka (5.3.4)
+  - Eureka (5.3.6)
   - SwiftDate (6.3.1)
   - WhatsNewKit (1.3.7)
 
@@ -25,12 +25,12 @@ EXTERNAL SOURCES:
     :path: "../SwiftDate"
 
 SPEC CHECKSUMS:
-  CloudCore: c054d7b93e75c868a366107142797cd1f8163a1d
+  CloudCore: cd32f797e2f55348af80ca2928d20a53ade70e85
   Connectivity: e990703fb8d8db54649ea05facac92000cc0f3eb
-  Eureka: 60cf058f86a8fb3ed26165ba5292b9850361b0a6
+  Eureka: 28ad9dec6286cd7cd601fdf8e8df39bb7356a8f4
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
 PODFILE CHECKSUM: 15fd67791ff5ba03b73770d5012c1b420c875596
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
