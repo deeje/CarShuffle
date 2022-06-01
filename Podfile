@@ -1,6 +1,6 @@
 
 def shared_pods
-    pod 'CloudCore', :path => '../CloudCore'
+    pod 'CloudCore'
 end
 
 target 'CarShuffle' do
@@ -13,7 +13,7 @@ target 'CarShuffle' do
     pod 'WhatsNewKit'
     
     pod 'Eureka'
-    pod 'SwiftDate', :path => '../SwiftDate'
+    pod 'SwiftDate', :git => "https://github.com/deeje/SwiftDate.git"
 end
 
 # target 'watchOS Extension' do
