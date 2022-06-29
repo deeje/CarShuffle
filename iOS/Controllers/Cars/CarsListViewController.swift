@@ -149,9 +149,9 @@ extension CarsListViewController {
     
     func carAt(_ indexPath: IndexPath) -> Car {
         let sectionData = self.frc.sections?[indexPath.section]
-        let userScan = sectionData?.objects![indexPath.item] as! Car
+        let car = sectionData?.objects![indexPath.item] as! Car
         
-        return userScan
+        return car
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
