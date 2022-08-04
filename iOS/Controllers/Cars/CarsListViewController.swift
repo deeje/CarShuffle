@@ -47,7 +47,6 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         configureDataSource()
         
         configureFRC()
-        updateSnapshot()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         
@@ -118,18 +117,6 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
         } catch {
             print("Fetch failed")
         }
-    }
-    
-    func updateSnapshot() {
-        var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>()
-        frc.sections?.forEach { section in
-            diffableDataSourceSnapshot.appendSections([section.name])
-            let cars = section.objects as! [Car]
-            let carIDs = cars.map { $0.objectID }
-            diffableDataSourceSnapshot.appendItems(carIDs, toSection: section.name)
-        }
-        
-        diffableDataSource.apply(diffableDataSourceSnapshot, animatingDifferences: true)
     }
     
 }
