@@ -136,7 +136,7 @@ class DayReminderEditor: FormViewController {
             }
             
             let calendar = Calendar.current
-            let today = Date() - 1.days
+            let today = Date().dateAtStartOf(.day)
             
             let weekday: WeekDay = (values[Keys.weekday.key()] as? WeekDay)!
             let nextWeekday = today.nextWeekday(weekday)
