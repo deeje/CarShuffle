@@ -53,6 +53,8 @@ class DayReminderEditor: FormViewController {
             reminderEntity = (try? persistentContainer.viewContext.existingObject(with: reminderID!)) as? Reminder
         }
         
+        let calendar = Calendar.current
+        
         form
             +++ Section()
             
@@ -63,12 +65,26 @@ class DayReminderEditor: FormViewController {
                     return rowValue?.name()
                 }
                 row.value = row.options[1]
+                
+                if let reminderEntity,
+                   let moveBy = reminderEntity.moveBy,
+                   let dayIndex = calendar.ordinality(of: .day, in: .weekOfMonth, for: moveBy)
+                {
+                    row.value = row.options[dayIndex - 1]
+                }
             }
             
             <<< PickerInlineRow<Int>(Keys.hour.key()) { row in
                 row.title = Keys.hour.title()
                 row.options = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
                 row.value = row.options[3]
+                
+                if let reminderEntity,
+                   let moveBy = reminderEntity.moveBy,
+                   let hour = calendar.ordinality(of: .hour, in: .day, for: moveBy)
+                {
+                    row.value = hour - 1
+                }
             }
             
             +++ Section("")
