@@ -49,7 +49,10 @@ final class RemindersObserver: NSObject, NSFetchedResultsControllerDelegate {
                 if countdown == .expired {
                     content.subtitle = "Parking has expired!"
                 } else {
-                    content.subtitle = "Parking expires in " + countdown.timeInterval().toString()
+                    content.subtitle = "Parking expires in " + countdown.timeInterval().toString() { options in
+                        options.zeroFormattingBehavior = .dropAll
+                        options.unitsStyle = .full
+                    }
                 }
                 
                 let notificationDate = reminder.moveBy! - countdown.timeInterval()
