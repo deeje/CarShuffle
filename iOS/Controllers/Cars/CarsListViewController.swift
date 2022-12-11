@@ -95,7 +95,7 @@ class CarsListViewController: UICollectionViewController, Storyboarded {
     
     func configureDataSource() {
         diffableDataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView) { [weak self] collectionView, indexPath, carID in
-            guard let self = self else { return nil }
+            guard let self else { return nil }
             
             return collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: carID)
         }
