@@ -1,6 +1,6 @@
 
 def shared_pods
-    pod 'CloudCore'
+  pod 'CloudCore', :path => '../../Libraries/CloudCore'
 end
 
 target 'CarShuffle' do
