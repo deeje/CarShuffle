@@ -151,7 +151,7 @@ extension CarsListViewController {
                                             reminderID: reminderID)
         show(reminderEditor, sender: self)
     }
-        
+    
     func confirmDelete(_ carID: NSManagedObjectID) {
         let alert = UIAlertController(title: "Delete this car?", message: "This cannot be undone", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Delete", style: .destructive) { _ in

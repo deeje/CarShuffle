@@ -1,9 +1,8 @@
 //
-//  NSPersistentContainer+CarShuffle.swift
+//  Persistent.swift
 //  CarShuffle
 //
-//  Created by deeje cooley on 3/9/21.
-//  Copyright © 2021 deeje LLC All rights reserved.
+//  Created by deeje cooley on 6/25/23.
 //
 
 import CoreData
@@ -16,10 +15,16 @@ struct Identifiers {
     static let carWidget = "CarWidget"
 }
 
-extension NSPersistentContainer {
-        
-    static public func CarShuffle(inMemory: Bool = false) -> NSPersistentContainer {
-        let container = NSPersistentContainer(name: Identifiers.database)
+struct PersistenceController {
+    
+    static let shared = PersistenceController()
+
+    static var preview = PersistenceController(inMemory: true)
+    
+    let container: NSPersistentContainer
+    
+    init(inMemory: Bool = false) {
+        container = NSPersistentContainer(name: Identifiers.database)
         
         let storeURL: URL
         if inMemory {
@@ -48,8 +53,6 @@ extension NSPersistentContainer {
             
             try? viewContext.save()
         }
-        
-        return container
     }
     
 }
