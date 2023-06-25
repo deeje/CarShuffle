@@ -18,12 +18,18 @@ struct Identifiers {
 
 extension NSPersistentContainer {
         
-    static func CarShuffle() -> NSPersistentContainer {
+    static func CarShuffle(inMemory: Bool = false) -> NSPersistentContainer {
         let container = NSPersistentContainer(name: Identifiers.database)
         
-        let storeURL = URL.storeURL(for: Identifiers.appGroup, databaseName: Identifiers.database)
+        let storeURL: URL
+        if inMemory {
+            storeURL = URL(fileURLWithPath: "/dev/null")
+        } else {
+            storeURL = URL.storeURL(for: Identifiers.appGroup, databaseName: Identifiers.database)
+        }
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         storeDescription.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+
         container.persistentStoreDescriptions = [storeDescription]
         
         container.loadPersistentStores { storeDescription, error in
@@ -31,6 +37,18 @@ extension NSPersistentContainer {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
+        
+        let viewContext = container.viewContext
+        viewContext.automaticallyMergesChangesFromParent = true
+        viewContext.name = "viewContext"
+        
+        if inMemory {
+            let car = Car(context: viewContext)
+            car.name = "test car"
+            
+            try? viewContext.save()
+        }
+        
         return container
     }
     

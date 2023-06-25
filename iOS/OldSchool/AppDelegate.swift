@@ -16,10 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer.CarShuffle()
-        let viewContext = container.viewContext
-        viewContext.automaticallyMergesChangesFromParent = true
-        viewContext.name = "viewContext"
-        viewContext.transactionAuthor = "App"
+        container.viewContext.transactionAuthor = "App"
         
         return container
     }()
