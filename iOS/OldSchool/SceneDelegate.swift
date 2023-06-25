@@ -15,7 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var persistentContainer: NSPersistentContainer!
     
     var window: UIWindow?
-    var launchCoordinator: LaunchCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
@@ -31,11 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         window.tintColor = .systemGreen
         
-        launchCoordinator = LaunchCoordinator(navigationController: navigationContoller,
-                                              persistentContainer: persistentContainer)
-        launchCoordinator?.start()
-        
         self.window = window
+        
+        let carsList = CarsListViewController.instantiate { coder in
+            return CarsListViewController(coder: coder, persistentContainer: self.persistentContainer)
+        }
+        navigationContoller.setViewControllers([carsList], animated: false)
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
