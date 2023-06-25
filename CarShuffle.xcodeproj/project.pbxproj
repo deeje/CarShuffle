@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5711945C2A48F311004AF2FC /* CarsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711945A2A48EF6D004AF2FC /* CarsList.swift */; };
+		5711945D2A48F317004AF2FC /* NSPersistentContainer+CarShuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */; };
+		5711945F2A48F505004AF2FC /* Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711945E2A48F505004AF2FC /* Persistent.swift */; };
 		575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */; };
 		575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF4026546F200050D693 /* RemindersObserver.swift */; };
 		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
@@ -26,7 +29,6 @@
 		57FD025D26349A55002B4DFF /* CarShuffleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD025C26349A55002B4DFF /* CarShuffleUITests.swift */; };
 		57FD026C26349DDA002B4DFF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FD026B26349DDA002B4DFF /* CloudKit.framework */; };
 		57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */; };
-		57FD02732634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */; };
 		57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02712634A03D002B4DFF /* URL+AppGroups.swift */; };
 		57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02762634AAD9002B4DFF /* Car+CoreDataClass.swift */; };
 		86180897563AA9D35CD1858B /* Pods_CarShuffle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		138F018A925F6F1934C33630 /* Pods-CarShuffle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarShuffle.release.xcconfig"; path = "Target Support Files/Pods-CarShuffle/Pods-CarShuffle.release.xcconfig"; sourceTree = "<group>"; };
+		5711945A2A48EF6D004AF2FC /* CarsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsList.swift; sourceTree = "<group>"; };
+		5711945E2A48F505004AF2FC /* Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistent.swift; sourceTree = "<group>"; };
 		575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		575ADF4026546F200050D693 /* RemindersObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersObserver.swift; sourceTree = "<group>"; };
 		575ADF42265474750050D693 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
@@ -117,8 +121,17 @@
 				57FD024526349A54002B4DFF /* LaunchScreen.storyboard */,
 				57FD023726349A53002B4DFF /* AppDelegate.swift */,
 				57FD023926349A53002B4DFF /* SceneDelegate.swift */,
+				57B26E07264B4981000C6996 /* Cars */,
 			);
 			path = OldSchool;
+			sourceTree = "<group>";
+		};
+		571194592A48EF28004AF2FC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5711945A2A48EF6D004AF2FC /* CarsList.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		576AEE222652F596003D597D /* Reminders */ = {
@@ -134,23 +147,15 @@
 		57B26DEE264AFB4C000C6996 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				57B26E07264B4981000C6996 /* Cars */,
 				576AEE222652F596003D597D /* Reminders */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		57B26DF7264B0B98000C6996 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				57B26DF8264B0B99000C6996 /* Storyboarded.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		57B26E07264B4981000C6996 /* Cars */ = {
 			isa = PBXGroup;
 			children = (
+				57B26DF8264B0B99000C6996 /* Storyboarded.swift */,
 				57B26E08264B49EE000C6996 /* CarsListViewController.swift */,
 				57B26E0C264B4D6D000C6996 /* CarsListView.storyboard */,
 				57B26E0A264B4AFF000C6996 /* CarEditor.swift */,
@@ -187,8 +192,8 @@
 				57FD026A26349DCF002B4DFF /* CarShuffle.entitlements */,
 				57FD024826349A54002B4DFF /* Info.plist */,
 				57FD024326349A54002B4DFF /* Assets.xcassets */,
+				571194592A48EF28004AF2FC /* Views */,
 				571194582A48EAA8004AF2FC /* OldSchool */,
-				57B26DF7264B0B98000C6996 /* Protocols */,
 				57B26DEE264AFB4C000C6996 /* Controllers */,
 			);
 			path = iOS;
@@ -225,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */,
-				57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */,
 				57FD02712634A03D002B4DFF /* URL+AppGroups.swift */,
 			);
 			path = Extensions;
@@ -239,6 +243,8 @@
 				579DFE0E266ACCFA00B0A079 /* Car+CloudCoreSharing.swift */,
 				575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */,
 				575ADF42265474750050D693 /* Countdown.swift */,
+				57FD02702634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift */,
+				5711945E2A48F505004AF2FC /* Persistent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -441,17 +447,19 @@
 				576AEE242652F5F5003D597D /* DateReminderEditor.swift in Sources */,
 				57FD023826349A53002B4DFF /* AppDelegate.swift in Sources */,
 				575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */,
+				5711945C2A48F311004AF2FC /* CarsList.swift in Sources */,
+				5711945F2A48F505004AF2FC /* Persistent.swift in Sources */,
 				57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */,
 				57690F59265878F300FCCAD2 /* DayReminderEditor.swift in Sources */,
 				57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */,
 				57B26E09264B49EE000C6996 /* CarsListViewController.swift in Sources */,
 				57B26DFA264B0B99000C6996 /* Storyboarded.swift in Sources */,
 				57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */,
+				5711945D2A48F317004AF2FC /* NSPersistentContainer+CarShuffle.swift in Sources */,
 				575ADF43265474750050D693 /* Countdown.swift in Sources */,
 				57FD023A26349A53002B4DFF /* SceneDelegate.swift in Sources */,
 				575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */,
 				57B26E0B264B4AFF000C6996 /* CarEditor.swift in Sources */,
-				57FD02732634A03D002B4DFF /* NSPersistentContainer+CarShuffle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@ struct Identifiers {
 
 extension NSPersistentContainer {
         
-    static func CarShuffle(inMemory: Bool = false) -> NSPersistentContainer {
+    static public func CarShuffle(inMemory: Bool = false) -> NSPersistentContainer {
         let container = NSPersistentContainer(name: Identifiers.database)
         
         let storeURL: URL
