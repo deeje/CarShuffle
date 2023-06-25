@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -117,6 +117,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		571194582A48EAA8004AF2FC /* OldSchool */ = {
+			isa = PBXGroup;
+			children = (
+				57FD024526349A54002B4DFF /* LaunchScreen.storyboard */,
+				57FD023726349A53002B4DFF /* AppDelegate.swift */,
+				57FD023926349A53002B4DFF /* SceneDelegate.swift */,
+				57B26DFC264B1248000C6996 /* LaunchCoordinator.swift */,
+				57B26DFE264B1373000C6996 /* Main.storyboard */,
+			);
+			path = OldSchool;
+			sourceTree = "<group>";
+		};
 		576AEE222652F596003D597D /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,11 +196,7 @@
 				57FD026A26349DCF002B4DFF /* CarShuffle.entitlements */,
 				57FD024826349A54002B4DFF /* Info.plist */,
 				57FD024326349A54002B4DFF /* Assets.xcassets */,
-				57FD024526349A54002B4DFF /* LaunchScreen.storyboard */,
-				57FD023726349A53002B4DFF /* AppDelegate.swift */,
-				57FD023926349A53002B4DFF /* SceneDelegate.swift */,
-				57B26DFC264B1248000C6996 /* LaunchCoordinator.swift */,
-				57B26DFE264B1373000C6996 /* Main.storyboard */,
+				571194582A48EAA8004AF2FC /* OldSchool */,
 				57B26DF7264B0B98000C6996 /* Protocols */,
 				57B26DEE264AFB4C000C6996 /* Controllers */,
 			);
