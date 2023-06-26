@@ -54,19 +54,23 @@ struct ReminderEditor: View {
     
     var body: some View {
         Form {
-            Picker("Day", selection: $selectedDay) {
-                ForEach(WeekDay.allCases) { day in
-                    Text(day.name()).tag(day)
+            Section {
+                Picker("Day", selection: $selectedDay) {
+                    ForEach(WeekDay.allCases) { day in
+                        Text(day.name()).tag(day)
+                    }
                 }
-            }
-            Picker("Hour", selection: $selectedHour) {
-                ForEach(hourOptions) { hour in
-                    Text("\(hour)").tag(hour)
+                Picker("Hour", selection: $selectedHour) {
+                    ForEach(hourOptions) { hour in
+                        Text("\(hour)").tag(hour)
+                    }
                 }
             }
             if reminderID != nil {
-                Button("Delete") {
-                    deleteReminder()
+                Section {
+                    Button("Delete") {
+                        deleteReminder()
+                    }
                 }
             }
         }
