@@ -34,6 +34,16 @@ struct CarsList: View {
                     }
                 }
             }
+            .swipeActions(edge: .leading) {
+                NavigationLink(value: car.objectID) {
+                    Text("Edit")
+                }
+            }
+            .contextMenu {
+                NavigationLink(value: car.objectID) {
+                    Text("Edit")
+                }
+            }
         }
         .listStyle(.grouped)
         .navigationTitle("Cars")
@@ -46,6 +56,9 @@ struct CarsList: View {
         }
         .navigationDestination(for: Car.self) { car in
             ReminderEditor(car: car)
+        }
+        .navigationDestination(for: NSManagedObjectID.self) { carID in
+            CarEditor(car: (try! viewContext.existingObject(with: carID) as! Car))
         }
         .navigationDestination(isPresented: $showingEditor) {
             CarEditor(car: nil)
@@ -67,6 +80,7 @@ struct CarsList: View {
             try? moc.save()
         }
     }
+    
 }
 
 #Preview {
