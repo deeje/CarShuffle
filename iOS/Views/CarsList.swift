@@ -11,17 +11,17 @@ import CoreData
 struct CarsList: View {
     @Environment(\.persistentContainer) private var persistentContainer
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Car.name, ascending: true)],
         animation: .default)
     private var cars: FetchedResults<Car>
-
+    
     var body: some View {
         List {
             ForEach(cars) { car in
                 NavigationLink(value: car) {
-                    HStack {
+                    HStack(alignment: .top) {
                         Image(systemName: "car")
                         Text(car.name!)
                     }
@@ -41,7 +41,7 @@ struct CarsList: View {
             
         }
     }
-
+    
     private func addCar() {
         persistentContainer.performBackgroundPushTask { moc in
             let car = Car(context: moc)
@@ -49,7 +49,7 @@ struct CarsList: View {
             try? moc.save()
         }
     }
-
+    
     private func deleteCars(offsets: IndexSet) {
         let carIDs = offsets.map { cars[$0].objectID }
         persistentContainer.performBackgroundPushTask { moc in
