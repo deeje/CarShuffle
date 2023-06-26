@@ -109,10 +109,12 @@ struct ReminderEditor: View {
             moveByComponents.timeZone = calendar.timeZone
             let moveBy = calendar.date(from: moveByComponents)
             
-            reminder.moveBy = moveBy
-            reminder.car!.lastUpdated = Date()
-            
-            try? moc.save()
+            if reminder.moveBy != moveBy {
+                reminder.moveBy = moveBy
+                reminder.car!.lastUpdated = Date()
+                
+                try? moc.save()
+            }
         }
         dismiss()
     }

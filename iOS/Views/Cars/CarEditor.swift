@@ -44,6 +44,9 @@ struct CarEditor: View {
                             deleteCar()
                         }
                     }
+                    message: {
+                      Text("This will remove the car from everyone currently sharing it.")
+                    }
                 }
             }
 
@@ -66,8 +69,10 @@ struct CarEditor: View {
             } else {
                 car = Car(context: moc)
             }
-            car.name = carName
-            try? moc.save()
+            if car.name != carName {
+                car.name = carName
+                try? moc.save()
+            }
         }
         dismiss()
     }
