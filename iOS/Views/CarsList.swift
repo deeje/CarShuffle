@@ -40,10 +40,10 @@ struct CarsList: View {
             }
         }
         .navigationDestination(for: Car.self) { car in
-            CarEditorForm(carID: car.objectID)
+            CarEditor(carID: car.objectID)
         }
         .navigationDestination(isPresented: $showingEditor) {
-            CarEditorForm(carID: nil)
+            CarEditor(carID: nil)
         }
     }
     

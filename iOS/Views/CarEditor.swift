@@ -1,5 +1,5 @@
 //
-//  CarEditorForm.swift
+//  CarEditor.swift
 //  CarShuffle
 //
 //  Created by deeje cooley on 6/25/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct CarEditorForm: View {
+struct CarEditor: View {
     
     @Environment(\.persistentContainer) private var persistentContainer
     @Environment(\.dismiss) var dismiss
@@ -52,8 +52,4 @@ struct CarEditorForm: View {
         dismiss()
     }
     
-}
-
-#Preview {
-    CarEditorForm()
 }
