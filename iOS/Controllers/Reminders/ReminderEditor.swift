@@ -1,5 +1,5 @@
 //
-//  DayReminderEditor.swift
+//  ReminderEditor.swift
 //  CarShuffle
 //
 //  Created by deeje cooley on 5/21/21.
@@ -20,7 +20,7 @@ final class DestructiveButtonRow : _ButtonRowOf<String>, RowType {
     }
 }
 
-class DayReminderEditor: FormViewController {
+class ReminderEditor: FormViewController {
     
     var persistentContainer: NSPersistentContainer
     var carID: NSManagedObjectID
