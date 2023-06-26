@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import SwiftDate
 
 struct CarsList: View {
     @Environment(\.persistentContainer) private var persistentContainer
@@ -22,13 +23,14 @@ struct CarsList: View {
     var body: some View {
         List(cars, id: \.objectID) { car in
             NavigationLink(value: car) {
-                VStack {
+                VStack(alignment: .leading) {
                     HStack(alignment: .top) {
                         Image(systemName: "car")
                         Text(car.name!)
                     }
                     if let reminder = car.reminder, let moveBy = reminder.moveBy {
-                        Text(moveBy.toString())
+                        Text(moveBy.toString(DateToStringStyles.dateTime(.short)))
+                        Text(moveBy.toString(DateToStringStyles.relative(style: nil)))
                     }
                 }
             }
