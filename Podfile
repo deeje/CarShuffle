@@ -12,7 +12,6 @@ target 'CarShuffle' do
     pod 'Connectivity'
     pod 'WhatsNewKit'
     
-    pod 'Eureka'
     pod 'SwiftDate', :git => "https://github.com/deeje/SwiftDate.git"
 end
 

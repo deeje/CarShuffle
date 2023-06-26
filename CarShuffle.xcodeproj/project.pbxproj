@@ -14,12 +14,10 @@
 		571194632A48F99E004AF2FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD023926349A53002B4DFF /* SceneDelegate.swift */; };
 		571194682A491510004AF2FC /* Environment+PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571194672A491510004AF2FC /* Environment+PersistentContainer.swift */; };
 		5711946C2A49382D004AF2FC /* CarEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711946B2A49382D004AF2FC /* CarEditor.swift */; };
-		5711946F2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */; };
 		571194722A4A1702004AF2FC /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571194712A4A1702004AF2FC /* ReminderForm.swift */; };
 		575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */; };
 		575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF4026546F200050D693 /* RemindersObserver.swift */; };
 		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
-		57690F59265878F300FCCAD2 /* ReminderEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57690F58265878F300FCCAD2 /* ReminderEditor.swift */; };
 		579DFE0F266ACCFA00B0A079 /* Car+CloudCoreSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DFE0E266ACCFA00B0A079 /* Car+CloudCoreSharing.swift */; };
 		57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */; };
 		57FD024426349A54002B4DFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57FD024326349A54002B4DFF /* Assets.xcassets */; };
@@ -57,12 +55,10 @@
 		571194602A48F733004AF2FC /* CarSuffleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSuffleApp.swift; sourceTree = "<group>"; };
 		571194672A491510004AF2FC /* Environment+PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+PersistentContainer.swift"; sourceTree = "<group>"; };
 		5711946B2A49382D004AF2FC /* CarEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditor.swift; sourceTree = "<group>"; };
-		5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditorRepresentable.swift; sourceTree = "<group>"; };
 		571194712A4A1702004AF2FC /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
 		575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		575ADF4026546F200050D693 /* RemindersObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersObserver.swift; sourceTree = "<group>"; };
 		575ADF42265474750050D693 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
-		57690F58265878F300FCCAD2 /* ReminderEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditor.swift; sourceTree = "<group>"; };
 		579DFE0E266ACCFA00B0A079 /* Car+CloudCoreSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+CloudCoreSharing.swift"; sourceTree = "<group>"; };
 		57FD023426349A53002B4DFF /* CarShuffle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarShuffle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FD023726349A53002B4DFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,27 +130,10 @@
 		571194702A4A16E2004AF2FC /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				575ADF4026546F200050D693 /* RemindersObserver.swift */,
 				571194712A4A1702004AF2FC /* ReminderForm.swift */,
+				575ADF4026546F200050D693 /* RemindersObserver.swift */,
 			);
 			path = Reminders;
-			sourceTree = "<group>";
-		};
-		576AEE222652F596003D597D /* Reminders */ = {
-			isa = PBXGroup;
-			children = (
-				57690F58265878F300FCCAD2 /* ReminderEditor.swift */,
-				5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */,
-			);
-			path = Reminders;
-			sourceTree = "<group>";
-		};
-		57B26DEE264AFB4C000C6996 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				576AEE222652F596003D597D /* Reminders */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		57FD022B26349A52002B4DFF = {
@@ -191,7 +170,6 @@
 				57FD023726349A53002B4DFF /* AppDelegate.swift */,
 				57FD023926349A53002B4DFF /* SceneDelegate.swift */,
 				571194592A48EF28004AF2FC /* Views */,
-				57B26DEE264AFB4C000C6996 /* Controllers */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -446,10 +424,8 @@
 				571194682A491510004AF2FC /* Environment+PersistentContainer.swift in Sources */,
 				5711945F2A48F505004AF2FC /* PersistenceController.swift in Sources */,
 				57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */,
-				57690F59265878F300FCCAD2 /* ReminderEditor.swift in Sources */,
 				57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */,
 				571194632A48F99E004AF2FC /* SceneDelegate.swift in Sources */,
-				5711946F2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift in Sources */,
 				57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */,
 				575ADF43265474750050D693 /* Countdown.swift in Sources */,
 				575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */,

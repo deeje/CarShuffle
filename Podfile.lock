@@ -1,21 +1,18 @@
 PODS:
   - CloudCore (6.0.0)
   - Connectivity (6.0.0)
-  - Eureka (5.4.0)
   - SwiftDate (6.3.1)
   - WhatsNewKit (1.3.7)
 
 DEPENDENCIES:
   - CloudCore (from `../../Libraries/CloudCore`)
   - Connectivity
-  - Eureka
   - SwiftDate (from `https://github.com/deeje/SwiftDate.git`)
   - WhatsNewKit
 
 SPEC REPOS:
   trunk:
     - Connectivity
-    - Eureka
     - WhatsNewKit
 
 EXTERNAL SOURCES:
@@ -32,10 +29,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   CloudCore: 1d5562b5a2ddb69aa3ed0cd8b7b66ea5957683e0
   Connectivity: 1919d4dc94c63514a2ec0574336f2e83857a20a8
-  Eureka: fadaa9fa3d6e402d3c60f78f24edf3d7bafc9c29
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
-PODFILE CHECKSUM: e22af5cc8ff193168ace633d790d559dded33a2c
+PODFILE CHECKSUM: 64a96144daa18359ad1d9f0290a7495ccdbfa436
 
 COCOAPODS: 1.12.1
