@@ -20,7 +20,7 @@ struct CarsList: View {
     @State private var showingEditor = false
     
     var body: some View {
-        List(cars) { car in
+        List(cars, id: \.objectID) { car in
             NavigationLink(value: car) {
                 HStack(alignment: .top) {
                     Image(systemName: "car")
