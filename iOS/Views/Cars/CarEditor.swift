@@ -38,6 +38,7 @@ struct CarEditor: View {
                 }
             }
         }
+        .navigationTitle("Car Info")
     }
     
     func saveCar() {
