@@ -17,6 +17,8 @@ struct CarsList: View {
         animation: .default)
     private var cars: FetchedResults<Car>
     
+    @State private var showingEditor = false
+
     var body: some View {
         List {
             ForEach(cars) { car in
@@ -38,16 +40,15 @@ struct CarsList: View {
             }
         }
         .navigationDestination(for: Car.self) { car in
-            
+            CarEditorForm(carID: car.objectID)
+        }
+        .navigationDestination(isPresented: $showingEditor) {
+            CarEditorForm(carID: nil)
         }
     }
     
     private func addCar() {
-        persistentContainer.performBackgroundPushTask { moc in
-            let car = Car(context: moc)
-            car.name = Date().toString()
-            try? moc.save()
-        }
+        showingEditor = true
     }
     
     private func deleteCars(offsets: IndexSet) {

@@ -17,7 +17,7 @@ struct CarShuffleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationStack {
                 CarsList()
             }
             .environment(\.persistentContainer, persistentContainer)
