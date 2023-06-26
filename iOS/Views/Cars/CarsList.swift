@@ -45,7 +45,7 @@ struct CarsList: View {
             }
         }
         .navigationDestination(for: Car.self) { car in
-            ReminderForm(car: car)
+            ReminderEditor(car: car)
         }
         .navigationDestination(isPresented: $showingEditor) {
             CarEditor(car: nil)

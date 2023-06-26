@@ -1,5 +1,5 @@
 //
-//  ReminderForm.swift
+//  ReminderEditor.swift
 //  CarShuffle
 //
 //  Created by deeje cooley on 6/26/23.
@@ -17,7 +17,7 @@ extension Int: Identifiable {
     public var id: Self { self }
 }
 
-struct ReminderForm: View {
+struct ReminderEditor: View {
         
     @Environment(\.persistentContainer) private var persistentContainer
     @Environment(\.dismiss) var dismiss
@@ -126,5 +126,5 @@ struct ReminderForm: View {
 }
 
 //#Preview {
-//    ReminderForm()
+//    ReminderEditor()
 //}
