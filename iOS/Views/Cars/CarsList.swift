@@ -90,9 +90,9 @@ struct CarsList: View {
     
 }
 
-#Preview {
-    NavigationView {
-        CarsList()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//#Preview {
+//    NavigationView {
+//        CarsList()
+//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}
