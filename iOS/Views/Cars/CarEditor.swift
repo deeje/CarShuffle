@@ -13,15 +13,17 @@ struct CarEditor: View {
     @Environment(\.persistentContainer) private var persistentContainer
     @Environment(\.dismiss) var dismiss
     
+    var car: Car?
     var carID: NSManagedObjectID?
     
     @State var carName = ""
     
-    init(carID: NSManagedObjectID? = nil) {
-        self.carID = carID
+    init(car: Car? = nil) {
+        self.car = car
         
-        if let carID, let car = try? persistentContainer.viewContext.existingObject(with: carID) as? Car {
-            carName = car.name ?? ""
+        if let car {
+            _carName = .init(initialValue: car.name ?? "")  // 2023-06 sigh, i'm already hacking shit
+            self.carID = car.objectID
         }
     }
     

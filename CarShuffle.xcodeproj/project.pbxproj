@@ -112,10 +112,18 @@
 		571194592A48EF28004AF2FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5711946D2A494074004AF2FC /* Cars */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5711946D2A494074004AF2FC /* Cars */ = {
+			isa = PBXGroup;
+			children = (
 				5711945A2A48EF6D004AF2FC /* CarsList.swift */,
 				5711946B2A49382D004AF2FC /* CarEditor.swift */,
 			);
-			path = Views;
+			path = Cars;
 			sourceTree = "<group>";
 		};
 		576AEE222652F596003D597D /* Reminders */ = {

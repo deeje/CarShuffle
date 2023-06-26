@@ -18,20 +18,18 @@ struct CarsList: View {
     private var cars: FetchedResults<Car>
     
     @State private var showingEditor = false
-
+    
     var body: some View {
-        List {
-            ForEach(cars) { car in
-                NavigationLink(value: car) {
-                    HStack(alignment: .top) {
-                        Image(systemName: "car")
-                        Text(car.name!)
-                    }
+        List(cars) { car in
+            NavigationLink(value: car) {
+                HStack(alignment: .top) {
+                    Image(systemName: "car")
+                    Text(car.name!)
                 }
-                
             }
-            .onDelete(perform: deleteCars)
         }
+        .listStyle(.grouped)
+        .navigationTitle("Cars")
         .toolbar {
             ToolbarItem {
                 Button(action: addCar) {
@@ -40,10 +38,10 @@ struct CarsList: View {
             }
         }
         .navigationDestination(for: Car.self) { car in
-            CarEditor(carID: car.objectID)
+            CarEditor(car: car)
         }
         .navigationDestination(isPresented: $showingEditor) {
-            CarEditor(carID: nil)
+            CarEditor(car: nil)
         }
     }
     
