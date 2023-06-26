@@ -40,8 +40,8 @@ struct ReminderForm: View {
         if let reminder = car.reminder, let moveBy = reminder.moveBy {
             self.reminderID = reminder.objectID
             
-            let dayIndex = calendar.ordinality(of: .day, in: .weekOfMonth, for: moveBy) ?? 0
-            _selectedDay = .init(initialValue: WeekDay.allCases[dayIndex])
+            let dayIndex = calendar.ordinality(of: .day, in: .weekOfMonth, for: moveBy) ?? 1
+            _selectedDay = .init(initialValue: WeekDay.allCases[dayIndex - 1])
             
             let hour = calendar.ordinality(of: .hour, in: .day, for: moveBy) ?? 1
             _selectedHour = .init(initialValue: (hour - 1))
@@ -77,6 +77,11 @@ struct ReminderForm: View {
     }
     
     func saveReminder() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            // Enable or disable features based on authorization.
+        }
+        
         persistentContainer.performBackgroundPushTask { moc in
             let reminder: Reminder
             if let reminderID {
