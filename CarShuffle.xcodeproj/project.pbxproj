@@ -109,13 +109,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		571194582A48EAA8004AF2FC /* OldSchool */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OldSchool;
-			sourceTree = "<group>";
-		};
 		571194592A48EF28004AF2FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,7 +169,6 @@
 				57FD023726349A53002B4DFF /* AppDelegate.swift */,
 				57FD023926349A53002B4DFF /* SceneDelegate.swift */,
 				571194592A48EF28004AF2FC /* Views */,
-				571194582A48EAA8004AF2FC /* OldSchool */,
 				57B26DEE264AFB4C000C6996 /* Controllers */,
 			);
 			path = iOS;
