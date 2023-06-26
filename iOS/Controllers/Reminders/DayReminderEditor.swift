@@ -10,6 +10,16 @@ import CoreData
 import CloudCore
 import SwiftDate
 
+final class DestructiveButtonRow : _ButtonRowOf<String>, RowType {
+    public required init(tag: String?) {
+        super.init(tag: tag)
+    }
+    override func customUpdateCell() {
+        super.customUpdateCell()
+        cell.textLabel?.textColor = UIColor.red
+    }
+}
+
 class DayReminderEditor: FormViewController {
     
     var persistentContainer: NSPersistentContainer
