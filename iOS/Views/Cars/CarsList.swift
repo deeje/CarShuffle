@@ -22,9 +22,14 @@ struct CarsList: View {
     var body: some View {
         List(cars, id: \.objectID) { car in
             NavigationLink(value: car) {
-                HStack(alignment: .top) {
-                    Image(systemName: "car")
-                    Text(car.name!)
+                VStack {
+                    HStack(alignment: .top) {
+                        Image(systemName: "car")
+                        Text(car.name!)
+                    }
+                    if let reminder = car.reminder, let moveBy = reminder.moveBy {
+                        Text(moveBy.toString())
+                    }
                 }
             }
         }
@@ -38,8 +43,7 @@ struct CarsList: View {
             }
         }
         .navigationDestination(for: Car.self) { car in
-//            CarEditor(car: car)
-            ReminderEditorRepresentable(persistentContainer: persistentContainer, carID: car.objectID, reminderID: car.reminder?.objectID)
+            ReminderForm(car: car)
         }
         .navigationDestination(isPresented: $showingEditor) {
             CarEditor(car: nil)

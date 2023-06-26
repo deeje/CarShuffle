@@ -15,6 +15,7 @@
 		571194682A491510004AF2FC /* Environment+PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571194672A491510004AF2FC /* Environment+PersistentContainer.swift */; };
 		5711946C2A49382D004AF2FC /* CarEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711946B2A49382D004AF2FC /* CarEditor.swift */; };
 		5711946F2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */; };
+		571194722A4A1702004AF2FC /* ReminderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571194712A4A1702004AF2FC /* ReminderForm.swift */; };
 		575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */; };
 		575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF4026546F200050D693 /* RemindersObserver.swift */; };
 		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
@@ -57,6 +58,7 @@
 		571194672A491510004AF2FC /* Environment+PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+PersistentContainer.swift"; sourceTree = "<group>"; };
 		5711946B2A49382D004AF2FC /* CarEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditor.swift; sourceTree = "<group>"; };
 		5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditorRepresentable.swift; sourceTree = "<group>"; };
+		571194712A4A1702004AF2FC /* ReminderForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderForm.swift; sourceTree = "<group>"; };
 		575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		575ADF4026546F200050D693 /* RemindersObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersObserver.swift; sourceTree = "<group>"; };
 		575ADF42265474750050D693 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				5711946D2A494074004AF2FC /* Cars */,
+				571194702A4A16E2004AF2FC /* Reminders */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -124,16 +127,24 @@
 			children = (
 				5711945A2A48EF6D004AF2FC /* CarsList.swift */,
 				5711946B2A49382D004AF2FC /* CarEditor.swift */,
-				5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */,
 			);
 			path = Cars;
+			sourceTree = "<group>";
+		};
+		571194702A4A16E2004AF2FC /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				575ADF4026546F200050D693 /* RemindersObserver.swift */,
+				571194712A4A1702004AF2FC /* ReminderForm.swift */,
+			);
+			path = Reminders;
 			sourceTree = "<group>";
 		};
 		576AEE222652F596003D597D /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
 				57690F58265878F300FCCAD2 /* ReminderEditor.swift */,
-				575ADF4026546F200050D693 /* RemindersObserver.swift */,
+				5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -428,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				579DFE0F266ACCFA00B0A079 /* Car+CloudCoreSharing.swift in Sources */,
+				571194722A4A1702004AF2FC /* ReminderForm.swift in Sources */,
 				57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */,
 				575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */,
 				5711945C2A48F311004AF2FC /* CarsList.swift in Sources */,
