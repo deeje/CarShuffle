@@ -17,8 +17,11 @@ struct CarShuffleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CarsList()
-                .environment(\.managedObjectContext, persistentContainer.viewContext)
+            NavigationView {
+                CarsList()
+            }
+            .environment(\.persistentContainer, persistentContainer)
+            .environment(\.managedObjectContext, persistentContainer.viewContext)
         }
     }
 }
