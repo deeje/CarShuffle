@@ -12,7 +12,7 @@ target 'CarShuffle' do
     pod 'Connectivity'
     pod 'WhatsNewKit'
     
-    pod 'SwiftDate', :git => "https://github.com/deeje/SwiftDate.git"
+    pod 'SwiftDate'
 end
 
 # target 'watchOS Extension' do

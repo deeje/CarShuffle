@@ -1,37 +1,31 @@
 PODS:
   - CloudCore (6.0.0)
   - Connectivity (6.0.0)
-  - SwiftDate (6.3.1)
+  - SwiftDate (7.0.0)
   - WhatsNewKit (1.3.7)
 
 DEPENDENCIES:
   - CloudCore (from `../../Libraries/CloudCore`)
   - Connectivity
-  - SwiftDate (from `https://github.com/deeje/SwiftDate.git`)
+  - SwiftDate
   - WhatsNewKit
 
 SPEC REPOS:
   trunk:
     - Connectivity
+    - SwiftDate
     - WhatsNewKit
 
 EXTERNAL SOURCES:
   CloudCore:
     :path: "../../Libraries/CloudCore"
-  SwiftDate:
-    :git: https://github.com/deeje/SwiftDate.git
-
-CHECKOUT OPTIONS:
-  SwiftDate:
-    :commit: 6e47be2b0392218b9caebc71d56fcff40b6e8421
-    :git: https://github.com/deeje/SwiftDate.git
 
 SPEC CHECKSUMS:
   CloudCore: 1d5562b5a2ddb69aa3ed0cd8b7b66ea5957683e0
   Connectivity: 1919d4dc94c63514a2ec0574336f2e83857a20a8
-  SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
+  SwiftDate: bbc26e26fc8c0c33fbee8c140c5e8a68293a148a
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
-PODFILE CHECKSUM: 64a96144daa18359ad1d9f0290a7495ccdbfa436
+PODFILE CHECKSUM: 423092bc12b70dbae0cdfafcc1671c0d4ee7b466
 
 COCOAPODS: 1.12.1

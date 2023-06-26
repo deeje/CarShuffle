@@ -13,6 +13,10 @@ extension WeekDay: Identifiable {
     public var id: Self { self }
 }
 
+extension WeekDay: CaseIterable {
+    public static var allCases: [WeekDay] = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
+}
+
 extension Int: Identifiable {
     public var id: Self { self }
 }

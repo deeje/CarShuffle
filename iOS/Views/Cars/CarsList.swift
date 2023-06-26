@@ -30,7 +30,7 @@ struct CarsList: View {
                     }
                     if let reminder = car.reminder, let moveBy = reminder.moveBy {
                         Text(moveBy.toString(DateToStringStyles.dateTime(.short)))
-                        Text(moveBy.toString(DateToStringStyles.relative(style: nil)))
+                        Text(moveBy.toString(DateToStringStyles.relative()))
                     }
                 }
             }
