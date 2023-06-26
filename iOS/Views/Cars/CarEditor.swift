@@ -18,6 +18,8 @@ struct CarEditor: View {
     
     @State var carName = ""
     
+    @State private var confirmingDelete: Bool = false
+    
     init(car: Car? = nil) {
         self.car = car
         
@@ -29,7 +31,22 @@ struct CarEditor: View {
     
     var body: some View {
         Form {
-            TextField("Name", text: $carName)
+            Section {
+                TextField("Name", text: $carName)
+            }
+            if carID != nil {
+                Section {
+                    Button("Delete", role: .destructive) {
+                        confirmingDelete = true
+                    }
+                    .confirmationDialog("Are you sure?", isPresented: $confirmingDelete, titleVisibility: .visible) {
+                        Button("Delete car", role: .destructive) {
+                            deleteCar()
+                        }
+                    }
+                }
+            }
+
         }
         .toolbar {
             ToolbarItem {
@@ -51,6 +68,17 @@ struct CarEditor: View {
             }
             car.name = carName
             try? moc.save()
+        }
+        dismiss()
+    }
+    
+    private func deleteCar() {
+        persistentContainer.performBackgroundPushTask { moc in
+            if let carID, let car = try? moc.existingObject(with: carID) {
+                moc.delete(car)
+                
+                try? moc.save()
+            }
         }
         dismiss()
     }
