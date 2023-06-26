@@ -38,7 +38,8 @@ struct CarsList: View {
             }
         }
         .navigationDestination(for: Car.self) { car in
-            CarEditor(car: car)
+//            CarEditor(car: car)
+            ReminderEditorRepresentable(persistentContainer: persistentContainer, carID: car.objectID, reminderID: car.reminder?.objectID)
         }
         .navigationDestination(isPresented: $showingEditor) {
             CarEditor(car: nil)

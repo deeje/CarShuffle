@@ -14,6 +14,7 @@
 		571194632A48F99E004AF2FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD023926349A53002B4DFF /* SceneDelegate.swift */; };
 		571194682A491510004AF2FC /* Environment+PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571194672A491510004AF2FC /* Environment+PersistentContainer.swift */; };
 		5711946C2A49382D004AF2FC /* CarEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711946B2A49382D004AF2FC /* CarEditor.swift */; };
+		5711946F2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */; };
 		575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */; };
 		575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF4026546F200050D693 /* RemindersObserver.swift */; };
 		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
@@ -55,6 +56,7 @@
 		571194602A48F733004AF2FC /* CarSuffleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSuffleApp.swift; sourceTree = "<group>"; };
 		571194672A491510004AF2FC /* Environment+PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Environment+PersistentContainer.swift"; sourceTree = "<group>"; };
 		5711946B2A49382D004AF2FC /* CarEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditor.swift; sourceTree = "<group>"; };
+		5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditorRepresentable.swift; sourceTree = "<group>"; };
 		575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		575ADF4026546F200050D693 /* RemindersObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersObserver.swift; sourceTree = "<group>"; };
 		575ADF42265474750050D693 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				5711945A2A48EF6D004AF2FC /* CarsList.swift */,
 				5711946B2A49382D004AF2FC /* CarEditor.swift */,
+				5711946E2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift */,
 			);
 			path = Cars;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				57690F59265878F300FCCAD2 /* ReminderEditor.swift in Sources */,
 				57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */,
 				571194632A48F99E004AF2FC /* SceneDelegate.swift in Sources */,
+				5711946F2A4A0F85004AF2FC /* ReminderEditorRepresentable.swift in Sources */,
 				57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */,
 				575ADF43265474750050D693 /* Countdown.swift in Sources */,
 				575ADF3E2652FA560050D693 /* Reminder+CoreDataClass.swift in Sources */,
