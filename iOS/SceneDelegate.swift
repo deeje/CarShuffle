@@ -11,9 +11,7 @@ import CloudKit
 import CloudCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
-    var persistentContainer: NSPersistentContainer!
-    
+        
     var window: UIWindow?
     
 //    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -44,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         acceptShareOperation.perShareResultBlock = { meta, result in
             guard let recordID = meta.hierarchicalRootRecordID else { return }
             
-            CloudCore.pull(rootRecordID: recordID, container: self.persistentContainer, error: nil) { }
+            CloudCore.pull(rootRecordID: recordID, container: PersistenceController.shared.container, error: nil) { }
         }
         acceptShareOperation.acceptSharesResultBlock = { result in
             // N/A
