@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CoreData
+import CloudKit
+import CloudCore
 
 struct CarEditor: View {
     
@@ -18,7 +20,13 @@ struct CarEditor: View {
     
     @State var carName = ""
     
+    @State private var iCloudEnabled: Bool = false
+    @State private var isEditable: Bool = false
+    
     @State private var confirmingDelete: Bool = false
+    
+    @State private var carShare: CKShare?
+    @State private var showSharing: Bool = false
     
     init(car: Car? = nil) {
         self.car = car
@@ -33,6 +41,7 @@ struct CarEditor: View {
         Form {
             Section {
                 TextField("Name", text: $carName)
+                    .disabled(!isEditable)
             }
             if carID != nil {
                 Section {
@@ -44,23 +53,52 @@ struct CarEditor: View {
                             deleteCar()
                         }
                     }
-                    message: {
-                      Text("This will remove the car from everyone currently sharing it.")
-                    }
                 }
             }
 
         }
         .toolbar {
-            ToolbarItem {
-                Button(action: saveCar) {
-                    Text("Save")
+            if iCloudEnabled && carShare != nil {
+                ToolbarItem {
+                    Button(action: {
+                        showSharing = true
+                    }) {
+                        Image(systemName: "person.crop.circle")
+                    }
+                }
+            }
+            if isEditable {
+                ToolbarItem {
+                    Button(action: saveCar) {
+                        Text("Save")
+                    }
                 }
             }
         }
         .navigationTitle("Car Info")
+        .task {
+            CloudCore.iCloudAvailable { available in
+                iCloudEnabled = available
+            }
+            
+            if let car {
+                car.fetchEditablePermissions { canEdit in
+                    isEditable = canEdit
+                }
+                car.fetchShareRecord(in: persistentContainer) { share, error in
+                    carShare = share
+                }
+            } else {
+                isEditable = true
+            }
+        }
+        .sheet(isPresented: $showSharing) {
+            if let car, let carShare {
+                CloudCoreSharingView(persistentContainer: persistentContainer, object: car, share: carShare, permissions: [.allowReadWrite, .allowPrivate])
+            }
+        }
     }
-    
+        
     func saveCar() {
         persistentContainer.performBackgroundPushTask { moc in
             let car: Car
