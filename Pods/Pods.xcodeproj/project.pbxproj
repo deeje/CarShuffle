@@ -47,6 +47,7 @@
 		524F86934B2FADDE7F28A7FB96D83CA1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6519C5E48CDADDF39A1343FA42E47AC5 /* CloudKit.framework */; };
 		54F6CBC54A9AC8D63D22FA85CEB902A0 /* CloudCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EC1424FC6DD01D1B47A0D2086837A6 /* CloudCore.swift */; };
 		566FDB20EF3A6A6D66FA925DE3C5D87C /* DateInRegion+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2ED29963962BFEB95158727B83107 /* DateInRegion+Components.swift */; };
+		571194742A4B8BFD004AF2FC /* CloudCoreSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571194732A4B8BFD004AF2FC /* CloudCoreSharingView.swift */; };
 		571E6A71D1AFA3651B145489A5F7A7A1 /* WhatsNewKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B67AB43EC46F3CC48E53EDD9B0D17A /* WhatsNewKit-dummy.m */; };
 		57822E2586AE1DCD998B25602840F076 /* ConnectivityResponseValidationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5ACBEB4046821CDC592138E601F92A /* ConnectivityResponseValidationMode.swift */; };
 		58AC99DB43C012D00DF0A905C05642F3 /* WhatsNew+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB641BA9038F6FED53B3B5B39DDB35F2 /* WhatsNew+Item.swift */; };
@@ -183,7 +184,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		020B17AD29454A4FCC8BCDF0C667091A /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.md; sourceTree = "<group>"; };
+		020B17AD29454A4FCC8BCDF0C667091A /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		0251CBEFFE2CFBDA32FB66CE9EAC26B8 /* WhatsNew+Version.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "WhatsNew+Version.swift"; path = "Sources/Models/WhatsNew+Version.swift"; sourceTree = "<group>"; };
 		02CF8716D2FDBB15FD4C1FE44A42CBF9 /* SwiftDate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftDate.release.xcconfig; sourceTree = "<group>"; };
 		03476B6898A556262C0C1A9011E89277 /* Int+DateComponents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int+DateComponents.swift"; path = "Sources/SwiftDate/Foundation+Extras/Int+DateComponents.swift"; sourceTree = "<group>"; };
@@ -205,7 +206,7 @@
 		161BDE881A7DA806A450E64EEFA8932B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		187BE717D362DEEF1EA4CF98A611B85A /* DateRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateRepresentable.swift; path = Sources/SwiftDate/DateRepresentable.swift; sourceTree = "<group>"; };
 		20DC70B14A5CB494C0C49880579B28F0 /* WhatsNewViewController+Animation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "WhatsNewViewController+Animation.swift"; path = "Sources/Configuration/WhatsNewViewController+Animation.swift"; sourceTree = "<group>"; };
-		231EA2C48C75941DD5A73E55DD5DBEF6 /* CloudCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = CloudCore.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		231EA2C48C75941DD5A73E55DD5DBEF6 /* CloudCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = CloudCore.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		23F6DBBA59377D121E3CFD10E45482A4 /* WhatsNewViewController+HapticFeedback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "WhatsNewViewController+HapticFeedback.swift"; path = "Sources/Configuration/WhatsNewViewController+HapticFeedback.swift"; sourceTree = "<group>"; };
 		250A98BF67FA357FCCF534876214B14F /* DateInRegion+Math.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateInRegion+Math.swift"; path = "Sources/SwiftDate/DateInRegion/DateInRegion+Math.swift"; sourceTree = "<group>"; };
 		25AB2899A536D206E2423CDC05A0B5B8 /* UIViewController+CloudKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+CloudKit.swift"; sourceTree = "<group>"; };
@@ -243,6 +244,7 @@
 		515280E62523F25263812E87E404FEA3 /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Connectivity/Classes/Reachability/Reachability.h; sourceTree = "<group>"; };
 		518A00CE755CDDCCB0C333C1FA4C3A7E /* CloudCoreCacheable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CloudCoreCacheable.swift; sourceTree = "<group>"; };
 		55AE4B227DC4D83D895CD92A6457DCC9 /* Connectivity.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Connectivity.modulemap; sourceTree = "<group>"; };
+		571194732A4B8BFD004AF2FC /* CloudCoreSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCoreSharingView.swift; sourceTree = "<group>"; };
 		58AE0544E0C381DDBD09356C357EC82B /* SwiftDate */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftDate; path = SwiftDate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5ACBEB4046821CDC592138E601F92A /* ConnectivityResponseValidationMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectivityResponseValidationMode.swift; path = "Connectivity/Classes/Response Validation/ConnectivityResponseValidationMode.swift"; sourceTree = "<group>"; };
 		5A84E1CF83C53F0401538C398DE39F70 /* Pods-CarShuffle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CarShuffle-dummy.m"; sourceTree = "<group>"; };
@@ -286,11 +288,11 @@
 		9CD27A1ECC88EA621A2378728E5884CA /* CloudCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CloudCore.release.xcconfig; sourceTree = "<group>"; };
 		9D1818E8CBCA77198069B97C78FF7F0E /* ServiceAttributeName.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServiceAttributeName.swift; sourceTree = "<group>"; };
 		9D2C6FDE6B84C1DE7C2D1CE2BEFD015A /* WhatsNewViewController+Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "WhatsNewViewController+Configuration.swift"; path = "Sources/Configuration/WhatsNewViewController+Configuration.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DD861F2A79A0232F63BF3F06AD7C85D /* Tokens.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		9E2CE8AE66EFA7D06E4FFE5C45ADEA69 /* ConnectivityStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectivityStatus.swift; path = Connectivity/Classes/Model/ConnectivityStatus.swift; sourceTree = "<group>"; };
 		9F41BA463B3C03B6628ADE64D06FA81A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		A0DCD1DC06DB8925D24FCE9D9DFE8313 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A0DCD1DC06DB8925D24FCE9D9DFE8313 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A21627C07E46D13113CC35C3709843E7 /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Connectivity/Classes/Reachability/Reachability.m; sourceTree = "<group>"; };
 		A2E2BF430FB44C3FD5A85EAF620B50BB /* CloudCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CloudCore-dummy.m"; sourceTree = "<group>"; };
 		A99012B8392886FF2EBC92C0299A2599 /* ObjectToRecordConverter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ObjectToRecordConverter.swift; sourceTree = "<group>"; };
@@ -415,7 +417,6 @@
 				4451A30B81413F40F4FCE2DE7C6EBFE9 /* PurgeLocalDatabaseOperation.swift */,
 				782A186148972361FC763F97AD075614 /* RecordToCoreDataOperation.swift */,
 			);
-			name = SubOperations;
 			path = SubOperations;
 			sourceTree = "<group>";
 		};
@@ -533,7 +534,6 @@
 				3AE4940032CB5563D24F90B03E087118 /* SetupOperation.swift */,
 				8E83F0F661EEE61E5CE6C5C161189D3E /* SubscribeOperation.swift */,
 			);
-			name = Setup;
 			path = Setup;
 			sourceTree = "<group>";
 		};
@@ -546,7 +546,6 @@
 				AF8A7309EF5687A0F3AC1E21B98FDDAE /* PublicSubscriptions */,
 				1719BE39040EE2488723AAF1EE5DD59C /* SubOperations */,
 			);
-			name = Pull;
 			path = Pull;
 			sourceTree = "<group>";
 		};
@@ -558,7 +557,6 @@
 				DD788E4A2D71EAD1BE5172429DB054C4 /* Model */,
 				A06286B83341C1221AB052E9A8DBBBB8 /* ObjectToRecord */,
 			);
-			name = Push;
 			path = Push;
 			sourceTree = "<group>";
 		};
@@ -567,8 +565,8 @@
 			children = (
 				342223E78E771320900C72EAE0F40E2D /* CloudCoreSharing.swift */,
 				446129486442671FB08F856D67DDC772 /* CloudCoreSharingController.swift */,
+				571194732A4B8BFD004AF2FC /* CloudCoreSharingView.swift */,
 			);
-			name = Sharing;
 			path = Sharing;
 			sourceTree = "<group>";
 		};
@@ -603,7 +601,6 @@
 				68EC491A380F4982DA74D21EBB08B6A3 /* WhatsNewViewController+TitleView.swift */,
 				4727FCC7D8AC15FFE56270F766D3E46D /* Support Files */,
 			);
-			name = WhatsNewKit;
 			path = WhatsNewKit;
 			sourceTree = "<group>";
 		};
@@ -615,7 +612,6 @@
 				A99012B8392886FF2EBC92C0299A2599 /* ObjectToRecordConverter.swift */,
 				E5B28FE60145D01596A6F7639C1EBA13 /* ObjectToRecordOperation.swift */,
 			);
-			name = ObjectToRecord;
 			path = ObjectToRecord;
 			sourceTree = "<group>";
 		};
@@ -653,7 +649,6 @@
 				EC9F12DB15148E65C11B55B0A9CD541A /* FetchPublicSubscriptionsOperation.swift */,
 				5C8109CB2C1137AD8A8B6C06C61E5C23 /* PublicDatabaseSubscriptions.swift */,
 			);
-			name = PublicSubscriptions;
 			path = PublicSubscriptions;
 			sourceTree = "<group>";
 		};
@@ -748,7 +743,6 @@
 				6306079B5ADF54731B89AA8B4CC76F29 /* Zones.swift */,
 				B0F4A634451F27F604D23F61DC142E9A /* Support Files */,
 			);
-			name = SwiftDate;
 			path = SwiftDate;
 			sourceTree = "<group>";
 		};
@@ -780,7 +774,6 @@
 				680BE5259A762105FDF3428A818C11C2 /* RecordIDWithDatabase.swift */,
 				4BADC341B8F8B90E3E0F749B5494E09C /* RecordWithDatabase.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -817,7 +810,6 @@
 				518A00CE755CDDCCB0C333C1FA4C3A7E /* CloudCoreCacheable.swift */,
 				D19FB1DA85E73C598DA6340036A4ED28 /* CloudCoreCacheManager.swift */,
 			);
-			name = Caching;
 			path = Caching;
 			sourceTree = "<group>";
 		};
@@ -846,7 +838,6 @@
 				2CA682C95B37E4AA56CA954BDE32DFE8 /* ResponseValidatorFactory.swift */,
 				A5ADD1D733AAF0189BD236DABDB25621 /* Support Files */,
 			);
-			name = Connectivity;
 			path = Connectivity;
 			sourceTree = "<group>";
 		};
@@ -1083,6 +1074,7 @@
 				DE1AEBBB78B70617CFCD5BFC0882A123 /* CloudCoreDelegate.swift in Sources */,
 				29E311FC46764FF4C76BE81E4A346C92 /* CloudCoreError.swift in Sources */,
 				2EAA6622C747ADAF64C2E7D1443DB075 /* CloudCoreSharing.swift in Sources */,
+				571194742A4B8BFD004AF2FC /* CloudCoreSharingView.swift in Sources */,
 				E8116CEF650CD6905874315CEE6D6D57 /* CloudCoreSharingController.swift in Sources */,
 				89311E670701E551E02BBD05C4C6EFDE /* CloudCoreType.swift in Sources */,
 				D2AAFD66275C20F37FFE234FAE77135D /* CloudKitAttribute.swift in Sources */,
