@@ -14,28 +14,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     var window: UIWindow?
     
-//    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        guard let windowScene = scene as? UIWindowScene else { return }
-//        
-//        persistentContainer = PersistenceController.shared.container
-//        
-//        let navigationContoller = UINavigationController()
-//        navigationContoller.navigationBar.isTranslucent = true
-//        
-//        let window = UIWindow(windowScene: windowScene)
-//        window.backgroundColor = .systemBackground
-//        window.rootViewController = navigationContoller
-//        window.makeKeyAndVisible()
-//        window.tintColor = .systemGreen
-//        
-//        self.window = window
-//        
-//        let carsList = CarsListViewController.instantiate { coder in
-//            return CarsListViewController(coder: coder, persistentContainer: self.persistentContainer)
-//        }
-//        navigationContoller.setViewControllers([carsList], animated: false)
-//    }
-    
     func windowScene(_ windowScene: UIWindowScene, userDidAcceptCloudKitShareWith cloudKitShareMetadata: CKShare.Metadata) {
         let acceptShareOperation = CKAcceptSharesOperation(shareMetadatas: [cloudKitShareMetadata])
         acceptShareOperation.qualityOfService = .userInteractive
