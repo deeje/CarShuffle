@@ -4,7 +4,7 @@ def shared_pods
 end
 
 target 'CarShuffle' do
-    platform :ios, '16.0'
+    platform :ios, '17.0'
     use_frameworks!
     
     shared_pods
@@ -24,11 +24,11 @@ end
 
 post_install do |installer|
     installer.pods_project.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.0'
     end
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.0'
         end
     end
 end
