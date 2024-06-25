@@ -1,18 +1,15 @@
 PODS:
   - CloudCore (6.0.0)
-  - Connectivity (6.1.1)
   - SwiftDate (7.0.0)
   - WhatsNewKit (1.3.7)
 
 DEPENDENCIES:
   - CloudCore (from `../../Libraries/CloudCore`)
-  - Connectivity
   - SwiftDate
   - WhatsNewKit
 
 SPEC REPOS:
   trunk:
-    - Connectivity
     - SwiftDate
     - WhatsNewKit
 
@@ -22,10 +19,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CloudCore: 1d5562b5a2ddb69aa3ed0cd8b7b66ea5957683e0
-  Connectivity: 8f70b8506f45632756348d40c6a46ae6f4732652
   SwiftDate: bbc26e26fc8c0c33fbee8c140c5e8a68293a148a
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
-PODFILE CHECKSUM: 86967593acab3f34087b31c47e3caaf6f4e78ac9
+PODFILE CHECKSUM: aecf6000e8cba9067baa56062c47e134c602b6ff
 
 COCOAPODS: 1.15.2

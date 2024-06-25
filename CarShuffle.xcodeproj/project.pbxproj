@@ -19,6 +19,7 @@
 		575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF4026546F200050D693 /* RemindersObserver.swift */; };
 		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
 		579DFE0F266ACCFA00B0A079 /* Car+CloudCoreSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DFE0E266ACCFA00B0A079 /* Car+CloudCoreSharing.swift */; };
+		57D60E702C2B70FC009FBBEE /* Connectivity in Frameworks */ = {isa = PBXBuildFile; productRef = 57D60E6F2C2B70FC009FBBEE /* Connectivity */; };
 		57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */; };
 		57FD024426349A54002B4DFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57FD024326349A54002B4DFF /* Assets.xcassets */; };
 		57FD024726349A54002B4DFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57FD024526349A54002B4DFF /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D60E702C2B70FC009FBBEE /* Connectivity in Frameworks */,
 				86180897563AA9D35CD1858B /* Pods_CarShuffle.framework in Frameworks */,
 				57FD026C26349DDA002B4DFF /* CloudKit.framework in Frameworks */,
 			);
@@ -260,6 +262,9 @@
 			dependencies = (
 			);
 			name = CarShuffle;
+			packageProductDependencies = (
+				57D60E6F2C2B70FC009FBBEE /* Connectivity */,
+			);
 			productName = CarShuffle;
 			productReference = 57FD023426349A53002B4DFF /* CarShuffle.app */;
 			productType = "com.apple.product-type.application";
@@ -332,6 +337,9 @@
 				Base,
 			);
 			mainGroup = 57FD022B26349A52002B4DFF;
+			packageReferences = (
+				57D60E6E2C2B70FC009FBBEE /* XCRemoteSwiftPackageReference "connectivity" */,
+			);
 			productRefGroup = 57FD023526349A53002B4DFF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -762,6 +770,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		57D60E6E2C2B70FC009FBBEE /* XCRemoteSwiftPackageReference "connectivity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rwbutler/connectivity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		57D60E6F2C2B70FC009FBBEE /* Connectivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57D60E6E2C2B70FC009FBBEE /* XCRemoteSwiftPackageReference "connectivity" */;
+			productName = Connectivity;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */ = {
