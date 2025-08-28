@@ -18,7 +18,7 @@
     "tvos": "15.0",
     "watchos": "8.0"
   },
-  "source_files": "Source/**/*.swift",
+  "source_files": "CloudCore/**/*.swift",
   "ios": {
     "frameworks": [
       "Foundation",

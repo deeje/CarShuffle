@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../../Libraries/CloudCore"
 
 SPEC CHECKSUMS:
-  CloudCore: 1d5562b5a2ddb69aa3ed0cd8b7b66ea5957683e0
+  CloudCore: 1a50b68b3e7d6c82e8360d7e0ac0ef671a27b2a7
   SwiftDate: bbc26e26fc8c0c33fbee8c140c5e8a68293a148a
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
