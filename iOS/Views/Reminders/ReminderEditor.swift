@@ -9,15 +9,15 @@ import SwiftUI
 import CoreData
 import SwiftDate
 
-extension WeekDay: Identifiable {
+extension WeekDay: @retroactive Identifiable {
     public var id: Self { self }
 }
 
-extension WeekDay: CaseIterable {
+extension WeekDay: @retroactive CaseIterable {
     public static var allCases: [WeekDay] = [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday]
 }
 
-extension Int: Identifiable {
+extension Int: @retroactive Identifiable {
     public var id: Self { self }
 }
 
@@ -32,7 +32,7 @@ struct ReminderEditor: View {
     
     let calendar = Calendar.current
     
-    let hourOptions = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+    let hourOptions = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
     @State var selectedDay: WeekDay = .wednesday
     @State var selectedHour: Int = 9
@@ -98,11 +98,23 @@ struct ReminderEditor: View {
                 reminder = Reminder(context: moc)
                 reminder.car = try! moc.existingObject(with: carID) as! Car
             }
+
+            let now = Date().inLocalTime()!.inDefaultRegion()
+            let today = now.dateAtStartOf(.day)
             
-            let today = Date().dateAtStartOf(.day)
-            let nextWeekday = today.nextWeekday(selectedDay)
+            var moveByComponents = now.dateComponents
+            if let weekDay = moveByComponents.weekdayOrdinal,
+                weekDay == selectedDay.rawValue,
+                moveByComponents.hour! < selectedHour
+            {
+                moveByComponents = today.dateComponents
+            }
+            else
+            {
+                let nextWeekday = today.nextWeekday(selectedDay)
+                moveByComponents = nextWeekday.dateComponents
+            }
             
-            var moveByComponents = nextWeekday.dateComponents
             moveByComponents.second = 0
             moveByComponents.minute = 0
             moveByComponents.hour = selectedHour
