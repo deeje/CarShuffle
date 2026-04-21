@@ -68,7 +68,7 @@ struct ReminderEditor: View {
             }
             if reminderID != nil {
                 Section {
-                    Button("Delete", role: .destructive) {
+                    Button("Remove", role: .destructive) {
                         deleteReminder()
                     }
                 }
