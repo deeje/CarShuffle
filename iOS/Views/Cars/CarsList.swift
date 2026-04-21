@@ -57,7 +57,7 @@ struct CarsList: View {
         .toolbar {
             ToolbarItem {
                 Button(action: addCar) {
-                    Label("Add Item", systemImage: "plus")
+                    Label("Add Car", systemImage: "plus")
                 }
             }
         }
