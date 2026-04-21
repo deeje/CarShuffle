@@ -1,5 +1,5 @@
 {
-  "originHash" : "1fb653c838759310f9ee954882a9e18f308d3f864636d4c58068acf2960a34e1",
+  "originHash" : "4cef2026cdcb201e3692a471d805a1876078efe7adc33f9eef8ed17e6b9ce4e9",
   "pins" : [
     {
       "identity" : "connectivity",
@@ -7,6 +7,15 @@
       "location" : "https://github.com/rwbutler/connectivity",
       "state" : {
         "revision" : "ac5a98af6564f6000f01e9c4cf0b89c7e8282513",
+        "version" : "7.0.0"
+      }
+    },
+    {
+      "identity" : "swiftdate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/malcommac/SwiftDate",
+      "state" : {
+        "revision" : "5d943224c3bb173e6ecf27295611615eba90c80e",
         "version" : "7.0.0"
       }
     },

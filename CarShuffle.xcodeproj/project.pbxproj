@@ -20,6 +20,7 @@
 		575ADF43265474750050D693 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575ADF42265474750050D693 /* Countdown.swift */; };
 		57958D4D2F980F9000F7D668 /* CloudCore in Frameworks */ = {isa = PBXBuildFile; productRef = 57958D4C2F980F9000F7D668 /* CloudCore */; };
 		57958D502F98103A00F7D668 /* WhatsNewKit in Frameworks */ = {isa = PBXBuildFile; productRef = 57958D4F2F98103A00F7D668 /* WhatsNewKit */; };
+		57958D532F98122A00F7D668 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 57958D522F98122A00F7D668 /* SwiftDate */; };
 		579DFE0F266ACCFA00B0A079 /* Car+CloudCoreSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DFE0E266ACCFA00B0A079 /* Car+CloudCoreSharing.swift */; };
 		57D60E702C2B70FC009FBBEE /* Connectivity in Frameworks */ = {isa = PBXBuildFile; productRef = 57D60E6F2C2B70FC009FBBEE /* Connectivity */; };
 		57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */; };
@@ -31,7 +32,6 @@
 		57FD02722634A03D002B4DFF /* NSManagedObject+EntityName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */; };
 		57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02712634A03D002B4DFF /* URL+AppGroups.swift */; };
 		57FD02772634AAD9002B4DFF /* Car+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FD02762634AAD9002B4DFF /* Car+CoreDataClass.swift */; };
-		86180897563AA9D35CD1858B /* Pods_CarShuffle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		138F018A925F6F1934C33630 /* Pods-CarShuffle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarShuffle.release.xcconfig"; path = "Target Support Files/Pods-CarShuffle/Pods-CarShuffle.release.xcconfig"; sourceTree = "<group>"; };
 		5711945A2A48EF6D004AF2FC /* CarsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsList.swift; sourceTree = "<group>"; };
 		5711945E2A48F505004AF2FC /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		571194602A48F733004AF2FC /* CarSuffleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSuffleApp.swift; sourceTree = "<group>"; };
@@ -81,7 +80,6 @@
 		57FD026F2634A03D002B4DFF /* NSManagedObject+EntityName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+EntityName.swift"; sourceTree = "<group>"; };
 		57FD02712634A03D002B4DFF /* URL+AppGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+AppGroups.swift"; sourceTree = "<group>"; };
 		57FD02762634AAD9002B4DFF /* Car+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+CoreDataClass.swift"; sourceTree = "<group>"; };
-		EC7BA306B5E1B87057226637 /* Pods-CarShuffle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarShuffle.debug.xcconfig"; path = "Target Support Files/Pods-CarShuffle/Pods-CarShuffle.debug.xcconfig"; sourceTree = "<group>"; };
 		F853DBAE0E2366E397A1C659 /* Pods_CarShuffle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarShuffle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,8 +90,8 @@
 			files = (
 				57D60E702C2B70FC009FBBEE /* Connectivity in Frameworks */,
 				57958D4D2F980F9000F7D668 /* CloudCore in Frameworks */,
+				57958D532F98122A00F7D668 /* SwiftDate in Frameworks */,
 				57958D502F98103A00F7D668 /* WhatsNewKit in Frameworks */,
-				86180897563AA9D35CD1858B /* Pods_CarShuffle.framework in Frameworks */,
 				57FD026C26349DDA002B4DFF /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +148,6 @@
 				57FD025026349A55002B4DFF /* CarShuffleTests */,
 				57FD025B26349A55002B4DFF /* CarShuffleUITests */,
 				57FD023526349A53002B4DFF /* Products */,
-				CBCC700DDB309FEA04691AF8 /* Pods */,
 				9448871DB874A7FAB53F0876 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -239,15 +236,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CBCC700DDB309FEA04691AF8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EC7BA306B5E1B87057226637 /* Pods-CarShuffle.debug.xcconfig */,
-				138F018A925F6F1934C33630 /* Pods-CarShuffle.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,11 +243,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57FD026126349A55002B4DFF /* Build configuration list for PBXNativeTarget "CarShuffle" */;
 			buildPhases = (
-				7C87AECC85041A1253DBB7E9 /* [CP] Check Pods Manifest.lock */,
 				57FD023026349A52002B4DFF /* Sources */,
 				57FD023126349A52002B4DFF /* Frameworks */,
 				57FD023226349A52002B4DFF /* Resources */,
-				1DC3C2EBB3433767F27F50B7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -270,6 +256,7 @@
 				57D60E6F2C2B70FC009FBBEE /* Connectivity */,
 				57958D4C2F980F9000F7D668 /* CloudCore */,
 				57958D4F2F98103A00F7D668 /* WhatsNewKit */,
+				57958D522F98122A00F7D668 /* SwiftDate */,
 			);
 			productName = CarShuffle;
 			productReference = 57FD023426349A53002B4DFF /* CarShuffle.app */;
@@ -347,6 +334,7 @@
 				57D60E6E2C2B70FC009FBBEE /* XCRemoteSwiftPackageReference "connectivity" */,
 				57958D4B2F980F9000F7D668 /* XCLocalSwiftPackageReference "../../Libraries/CloudCore" */,
 				57958D4E2F98103A00F7D668 /* XCRemoteSwiftPackageReference "WhatsNewKit" */,
+				57958D512F98122A00F7D668 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 57FD023526349A53002B4DFF /* Products */;
 			projectDirPath = "";
@@ -384,52 +372,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1DC3C2EBB3433767F27F50B7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CarShuffle/Pods-CarShuffle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CarShuffle/Pods-CarShuffle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarShuffle/Pods-CarShuffle-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7C87AECC85041A1253DBB7E9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CarShuffle-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		57FD023026349A52002B4DFF /* Sources */ = {
@@ -614,7 +556,6 @@
 		};
 		57FD026226349A55002B4DFF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC7BA306B5E1B87057226637 /* Pods-CarShuffle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -638,7 +579,6 @@
 		};
 		57FD026326349A55002B4DFF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 138F018A925F6F1934C33630 /* Pods-CarShuffle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -799,6 +739,14 @@
 				minimumVersion = 2.2.1;
 			};
 		};
+		57958D512F98122A00F7D668 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		57D60E6E2C2B70FC009FBBEE /* XCRemoteSwiftPackageReference "connectivity" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rwbutler/connectivity";
@@ -818,6 +766,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 57958D4E2F98103A00F7D668 /* XCRemoteSwiftPackageReference "WhatsNewKit" */;
 			productName = WhatsNewKit;
+		};
+		57958D522F98122A00F7D668 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57958D512F98122A00F7D668 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 		57D60E6F2C2B70FC009FBBEE /* Connectivity */ = {
 			isa = XCSwiftPackageProductDependency;
