@@ -21,6 +21,7 @@
 		57958D4D2F980F9000F7D668 /* CloudCore in Frameworks */ = {isa = PBXBuildFile; productRef = 57958D4C2F980F9000F7D668 /* CloudCore */; };
 		57958D502F98103A00F7D668 /* WhatsNewKit in Frameworks */ = {isa = PBXBuildFile; productRef = 57958D4F2F98103A00F7D668 /* WhatsNewKit */; };
 		57958D532F98122A00F7D668 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 57958D522F98122A00F7D668 /* SwiftDate */; };
+		57958D552F98136E00F7D668 /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57958D542F98136B00F7D668 /* CarView.swift */; };
 		579DFE0F266ACCFA00B0A079 /* Car+CloudCoreSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DFE0E266ACCFA00B0A079 /* Car+CloudCoreSharing.swift */; };
 		57D60E702C2B70FC009FBBEE /* Connectivity in Frameworks */ = {isa = PBXBuildFile; productRef = 57D60E6F2C2B70FC009FBBEE /* Connectivity */; };
 		57FD024226349A53002B4DFF /* CarShuffle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FD024026349A53002B4DFF /* CarShuffle.xcdatamodeld */; };
@@ -61,6 +62,7 @@
 		575ADF3D2652FA560050D693 /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		575ADF4026546F200050D693 /* RemindersObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersObserver.swift; sourceTree = "<group>"; };
 		575ADF42265474750050D693 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
+		57958D542F98136B00F7D668 /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		579DFE0E266ACCFA00B0A079 /* Car+CloudCoreSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+CloudCoreSharing.swift"; sourceTree = "<group>"; };
 		57FD023426349A53002B4DFF /* CarShuffle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarShuffle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FD023726349A53002B4DFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		5711946D2A494074004AF2FC /* Cars */ = {
 			isa = PBXGroup;
 			children = (
+				57958D542F98136B00F7D668 /* CarView.swift */,
 				5711945A2A48EF6D004AF2FC /* CarsList.swift */,
 				5711946B2A49382D004AF2FC /* CarEditor.swift */,
 			);
@@ -382,6 +385,7 @@
 				571194722A4A1702004AF2FC /* ReminderEditor.swift in Sources */,
 				57FD02742634A03D002B4DFF /* URL+AppGroups.swift in Sources */,
 				575ADF4126546F200050D693 /* RemindersObserver.swift in Sources */,
+				57958D552F98136E00F7D668 /* CarView.swift in Sources */,
 				5711945C2A48F311004AF2FC /* CarsList.swift in Sources */,
 				571194682A491510004AF2FC /* Environment+PersistentContainer.swift in Sources */,
 				5711945F2A48F505004AF2FC /* PersistenceController.swift in Sources */,
